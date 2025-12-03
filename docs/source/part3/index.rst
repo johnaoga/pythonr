@@ -133,7 +133,7 @@ Le professeur propose plusieurs thèmes/situations parmi lesquels vous devez cho
 
 **Livrables :**
 
-1. **Code Python ou R**
+1. Code Python ou R
    
    * Fichiers .py ou .ipynb (Python)
    * Fichiers .R ou .Rmd (R)
