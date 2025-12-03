@@ -157,14 +157,14 @@ Critères d'évaluation
 
 Le projet sera évalué selon 4 composantes  :
 
-**1. Code Python **
+1. Code Python 
 
 * Fonctionnalité et exécution sans erreur
 * Structure et organisation
 * Utilisation appropriée des structures de données
 * Gestion des erreurs
 
-**2. Code R **
+2. Code R 
 
 * Fonctionnalité et exécution sans erreur
 * Structure et organisation
