@@ -41,7 +41,7 @@ Les plus parties sont:
 
 * :doc:`Part 1 <../part1/index>`: Part 1: Introduction et les bases de la programmation
 * :doc:`Part 2 <../part2/index>`: Part 2: Mannipulation de données et visualisation
-* :doc:`Part 3 <../part3/index>`: Part 3: Analyse statistique et modélisation
+* :doc:`Part 3 <../part3/index>`: Part 3: Projet d'analyse de données
 
 Si la masse horaire le permet on peut couvrir plusieurs autres aspects de la programmation.
 

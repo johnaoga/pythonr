@@ -2,478 +2,296 @@
 
 
 *************************************************************************************************
-Chapitre 2 | Qualité d'un logiciel et la norme ISO9126
+Chapitre 2 | Manipulation de données et visualisation
 *************************************************************************************************
 
 Objectifs
 =========
 
-A l'issue de cette partie chaque étudiant sera capable:
+À l'issue de cette partie, chaque étudiant.e sera capable dans les deux langages (Python et R) de :
 
-* de définir chaque critère et sous critère de la norme ISO9126.
-* de donner des exemples qui renvoie à chaque (sous) critère dans les logiciels de tous les jours
-* comprendre les processus d'assurance qualité
+* Importer des données de différents formats (CSV, Excel, JSON)
+* Identifier et traiter les valeurs manquantes et aberrantes
+* Effectuer des transformations et des manipulations de données
+* Calculer des statistiques descriptives (moyennes, médianes, corrélations)
+* Créer des graphiques de base (histogrammes, boxplots, nuages de points)
+* Développer des visualisations avec les bibliothèques spécialisées
+* Personnaliser l'apparence des graphiques
+* Choisir le type de graphique approprié selon les données
+* Créer des applications web interactives avec Streamlit (Python) et Shiny (R)
 
 
-Note de théorique
+Notes théoriques
 =======================================
 
-la norme ISO9126 definit 06 critères de qualité:
+Exercice introductif
+""""""""""""""""""""
 
-- la capacités fonctionnelle: attributs du logiciel à répondre aux specs (aptitude/pertinence, exactitude/conformité, sécurité)
-- la fiabilité: attributs du logiciel à maintenir un niveau de service sous certaines conditions(récupération après sinistre, tolérance au fautes, maturité)
-- la réutilisabilité: attributs du logiciel à présenter de 
+1. Quels formats de données avez-vous déjà manipulés dans vos travaux académiques ou professionnels ?
+2. Comment traitez-vous actuellement les données manquantes ou incohérentes dans vos analyses ?
+3. Quels outils ou logiciels avez-vous utilisés pour créer des graphiques ? Quelles ont été leurs limites ?
+4. Selon vous, qu'est-ce qui rend une visualisation de données efficace ?
+5. Avez-vous déjà entendu parler de bibliothèques comme pandas, matplotlib, ggplot2 ou dplyr ?
 
-A lire
+
+Tableau récapitulatif : Équivalences Python ↔ R
+""""""""""""""""""""""""""""""""""""""""""""""""
+
+.. list-table::
+   :header-rows: 1
+   :widths: 35 35 30
+
+   * - Python
+     - R
+     - Fonction
+   * - **Import de données**
+     -
+     -
+   * - ``pd.read_csv()``
+     - ``read.csv()``
+     - Lire fichier CSV
+   * - ``pd.read_excel()``
+     - ``read_excel()`` (readxl)
+     - Lire fichier Excel
+   * - ``pd.read_json()``
+     - ``fromJSON()`` (jsonlite)
+     - Lire fichier JSON
+   * - **Manipulation de données**
+     -
+     -
+   * - ``df[['col1', 'col2']]``
+     - ``select(df, col1, col2)``
+     - Sélectionner colonnes
+   * - ``df[df['age'] > 18]``
+     - ``filter(df, age > 18)``
+     - Filtrer lignes
+   * - ``df.sort_values('col')``
+     - ``arrange(df, col)``
+     - Trier données
+   * - ``df['new'] = df['a'] + df['b']``
+     - ``mutate(df, new = a + b)``
+     - Créer/modifier colonne
+   * - ``df.groupby('cat').mean()``
+     - ``group_by() %>% summarise()``
+     - Grouper et agréger
+   * - ``pd.merge(df1, df2)``
+     - ``left_join(df1, df2)``
+     - Fusionner DataFrames
+   * - **Valeurs manquantes**
+     -
+     -
+   * - ``df.isna()``
+     - ``is.na(df)``
+     - Détecter valeurs manquantes
+   * - ``df.dropna()``
+     - ``na.omit(df)``
+     - Supprimer lignes avec NA
+   * - ``df.fillna(value)``
+     - ``replace_na(df, value)``
+     - Remplacer NA
+   * - **Statistiques descriptives**
+     -
+     -
+   * - ``df['col'].mean()``
+     - ``mean(df$col)``
+     - Calculer moyenne
+   * - ``df['col'].median()``
+     - ``median(df$col)``
+     - Calculer médiane
+   * - ``df['col'].std()``
+     - ``sd(df$col)``
+     - Écart-type
+   * - ``df.corr()``
+     - ``cor(df)``
+     - Matrice de corrélation
+   * - ``df.describe()``
+     - ``summary(df)``
+     - Statistiques complètes
+   * - **Visualisation**
+     -
+     -
+   * - ``matplotlib.pyplot``
+     - ``ggplot2``
+     - Bibliothèque principale
+   * - ``plt.hist()``
+     - ``geom_histogram()``
+     - Histogramme
+   * - ``plt.boxplot()``
+     - ``geom_boxplot()``
+     - Boxplot
+   * - ``plt.scatter()``
+     - ``geom_point()``
+     - Nuage de points
+   * - ``plt.plot()``
+     - ``geom_line()``
+     - Courbe
+   * - ``plt.bar()``
+     - ``geom_bar()``
+     - Diagramme en barres
+   * - ``seaborn.heatmap()``
+     - ``geom_tile()``
+     - Carte de chaleur
+   * - ``plt.title()``
+     - ``ggtitle()``
+     - Ajouter titre
+   * - ``plt.xlabel() / ylabel()``
+     - ``xlab() / ylab()``
+     - Labels des axes
+
+
+Applications web interactives
+""""""""""""""""""""""""""""""
+
+**Streamlit (Python)**
+
+Streamlit permet de créer rapidement des applications web de data science sans connaissances en développement web.
+
+* **Installation** : ``pip install streamlit``
+* **Lancer une app** : ``streamlit run app.py``
+* **Composants de base** :
+
+  * ``st.title("Titre")`` : Ajouter un titre
+  * ``st.write(data)`` : Afficher du texte ou des données
+  * ``st.dataframe(df)`` : Afficher un DataFrame interactif
+  * ``st.line_chart(df)`` : Graphique en ligne
+  * ``st.bar_chart(df)`` : Graphique en barres
+  * ``st.pyplot(fig)`` : Afficher un graphique matplotlib
+  * ``st.selectbox()`` : Menu déroulant
+  * ``st.slider()`` : Curseur de sélection
+  * ``st.file_uploader()`` : Télécharger un fichier
+
+**Shiny (R)**
+
+Shiny permet de créer des applications web interactives pour visualiser et analyser des données en R.
+
+* **Installation** : ``install.packages("shiny")``
+* **Structure de base** :
+
+  * ``ui`` : Interface utilisateur (layout, inputs, outputs)
+  * ``server`` : Logique de l'application (calculs, graphiques)
+  * ``shinyApp(ui, server)`` : Lancer l'application
+
+* **Composants UI** :
+
+  * ``titlePanel("Titre")`` : Titre de l'app
+  * ``sidebarLayout()`` : Layout avec barre latérale
+  * ``selectInput()`` : Menu déroulant
+  * ``sliderInput()`` : Curseur
+  * ``plotOutput("plot")`` : Zone pour afficher un graphique
+  * ``tableOutput("table")`` : Zone pour afficher un tableau
+
+* **Composants Server** :
+
+  * ``output$plot <- renderPlot({...})`` : Générer un graphique
+  * ``output$table <- renderTable({...})`` : Générer un tableau
+  * ``input$variable`` : Accéder aux entrées utilisateur
+  * ``reactive({...})`` : Créer des données réactives
+
+
+
+
+
+À lire / Aller plus loin
 =======================================
 
-Livre de référence:
+Slides du cours :
 
-* Chapitre 1, section 1: quelques rappels de Java et la programmation en général
-* Chapitre 1, section 2: Abstraction de données
-* Chapitre 1, section 3: Piles, files, sacs, listes chainées
-* Chapitre 1, section 4: Analyses d'algorithmes
+Livres de référence :
 
-Ainsi que ce document résumant les différentes notations de :ref:`part1complexity`.
 
-Slides (keynote)
-
-* `Introduction <https://www.icloud.com/keynote/0jTHGv9VcBJNqr701X0LiSSeQ#part1-intro>`_ 
-* `Séance Intermédiaire <https://www.icloud.com/keynote/037KCYIeXbULVFGRo7xLiY8fA#part1-exercices>`_ 
-* `Restructuration <https://www.icloud.com/keynote/0C9qyvWomr8eHMmHUELTMbC7A#part1-bilan>`_ 
+Tutoriels :
 
 
 
-Exercices théoriques: première partie
+Exercices théoriques
 =======================================
 
 .. note::
-   Vous devez faire ces exercices pour le mercredi de S2.
+   Vous devez faire ces exercices avant la prochaine séance.
 
-Exercice 1.1.1
-""""""""""""""
+Exercice 1 : Import et exploration
+"""""""""""""""""""""""""""""""""""
 
-Définissez ce qu'est un type abstrait de données (TAD [#adt]_). En java, est-il préférable de décrire un TAD par une
-classe ou une interface ? Pourquoi ?
+1. Importez un fichier CSV contenant des données d'étudiants en Python et R
+2. Affichez les 10 premières lignes, les dimensions et les types de colonnes
+3. Calculez les statistiques descriptives (moyenne, médiane, écart-type) pour les notes
+4. Identifiez le nombre de valeurs manquantes par colonne
 
-Exercice 1.1.2
-""""""""""""""
+Exercice 2 : Nettoyage et transformation
+"""""""""""""""""""""""""""""""""""""""""
 
-Comment faire pour implémenter une *pile* par une liste simplement chaînée où les opérations
-`push` et `pop` se font en **fin de liste** ? Cette solution est-elle efficace ? Argumentez.
+1. Supprimez les lignes avec valeurs manquantes dans la colonne "note"
+2. Remplacez les valeurs manquantes de la colonne "âge" par la moyenne
+3. Filtrez les données pour ne garder que les étudiants de plus de 20 ans
+4. Créez une colonne "mention" : Passable (<12), AB (12-14), B (14-16), TB (>16)
+5. Calculez la moyenne par mention
 
-Exercice 1.1.3
-""""""""""""""
+Exercice 3 : Visualisation
+"""""""""""""""""""""""""""
 
-Quelles sont les implémentations possibles pour une pile? En consultant la documentation sur l'API de Java, décrivez
-l'implémentation d'une pile par la classe `java.util.Stack`. Aller voir le code source de l'implémentation
-`java.util.Stack` (crtl+B depuis IntelliJ).
+Créez les visualisations suivantes en Python ET en R :
 
-Pourquoi pensez-vous que les développeurs de Java ont choisi cette implémentation
-(hint: argumentez au niveau de la mémoire et du garbage collector)?
+1. Histogramme de la distribution des notes
+2. Boxplot des notes par mention
+3. Scatter plot entre l'âge et la note
+4. Bar plot du nombre d'étudiants par mention
+5. Personnalisez chaque graphique (titre, labels, couleurs)
 
-Exercice 1.1.4
-""""""""""""""
+Exercice 4 : Analyse comparative
+"""""""""""""""""""""""""""""""""
 
-Comment faire pour implémenter le type abstrait de données *Pile* à l'aide de deux *files* ?
-Décrivez en particulier le fonctionnement des méthodes `push` et `pop` dans ce cas.
+1. Comparez deux jeux de données (ex: notes 2023 vs 2024)
+2. Calculez les statistiques pour chaque année
+3. Créez des visualisations comparatives
+4. Identifiez les différences majeures et interprétez les résultats
 
-A titre d'exemple, précisez l'état de chacune des deux files après avoir empilé les entiers `1 2 3` à partir d'une pile
-initialement vide. Décrivez ce qu'il se passe ensuite lorsque l'on effectue l'opération `pop`.
 
-Quelle est la complexité temporelle de ces méthodes si l'on suppose que chaque opération `enqueue` et `dequeue`
-s'exécute en temps constant?
 
-Cette implémentation d'une pile est-elle efficace (pour :math:`n` opérations)
-par rapport aux autres implémentations présentées dans le livre de référence ?
-
-Exercice 1.1.5
-""""""""""""""
-
-* Qu'est-ce qu'un iterateur en Java (`java.util.Iterator`)?
-* Pourquoi est-ce utile de définir une méthode `iterator()` sur les structures de données?
-* Que pensez vous de permettre la modification d'une structure de donnée alors qu'on est en train d'itérer sur celle-ci?
-
-Pour vous aider dans la réflexion, nous vous invitons à lire la spécification de l'API Java concernant la méthode
-`remove()`.
-
-Proposez une modification du code de l'iterateur de Stack qui lance une `java.util.ConcurrentModificationException`
-si le client modifie la collection avec un `push()` ou `pop()` durant l'itération. Est-ce une bonne idée de laisser
-l'implémentation de la méthode `remove()` vide si on ne désire pas permettre cette fonctionnalité?
-
-Exercice 1.1.6
-"""""""""""""""
-
-La notation :math:`\sim` (tilde) est utilisée dans le livre de référence pour l'analyse des temps de calcul des
-algorithmes. En quoi cette notation diffère ou ressemble aux notations plus classiquement utilisées :math:`\mathcal{O}`
-(big Oh), :math:`\mathcal{\Omega}` (big Omega) et :math:`\mathcal{\Theta}` (big Theta)?
-
-Expliquez précisément les liens et similitudes entre celles-ci.
-Que voyez-vous comme avantage à utiliser la notation :math:`\sim` (tilde) plutôt que :math:`\mathcal{O}`
-lorsque c'est possible?
-
-Exercice 1.1.7
-""""""""""""""
-
-Expliquez comment nous pouvons extraire la caractérisation :math:`\sim` (tilde) de l'implémentation d'un algorithme à
-l'aide du test *Doubling ratio*.
-
-* Comment fonctionne ce test?
-* Quelles sont les limites et avantages de ce test?
-
-Supposont que nous mesurons les temps d'exécutions :math:`T(n)` suivants (en secondes) d'un programme en fonction de la
-taille de l'entrée :math:`n`:
-
-============  ==== ==== ==== ==== ===== ===== =====
-:math:`n`     1000 2000 4000 8000 16000 32000 64000
-:math:`T(n)`  0    0    0.1  0.3  1.3   5.1   20.5
-============  ==== ==== ==== ==== ===== ===== =====
-
-* Comment pouvez-vous caractériser au mieux l'ordre de croissance de cette fonction ?
-* Que serait le temps d'exécution pour 128000?
-
-Exercices théoriques supplémentaires
-====================================
-
-.. note::
-    Ces exercices ne seront pas forcéments résolus en cours, ils restent néanmoins intéressants.
-    Si vous avez des problèmes avec ceux-ci, posez votre question lors d'un TP.
-
-Exercice 1.1b.1
-"""""""""""""""
-
-Que signifient les paramètres -Xmx, -Xms que l'on peut passer à la JVM pour l'exécution d'un bytecode?
-Est-ce que ces paramètres peuvent influencer la vitesse d'exécution d'un programme Java? Pourquoi?
-
-Exercice 1.1b.2
-"""""""""""""""
-
-* Qu'est-ce qu'un bon ensemble de tests unitaires pour vérifier l'exactitude d'une structure de données?
-* Pensez-vous aux cas limites?
-* Pensez-vous à la valeur maximale des entiers, doubles, etc?
-* En quoi la génération de données aléatoire peut être utile pour tester les structures de données?
-* Pourquoi est-ce important de travailler avec une semence (seed) fixée?
-* En quoi un outil d'analyse de couverture de code peut être utile (tel que `Jacoco <http://eclemma.org/jacoco/>`_)
-  pour vous aidez à concevoir des tests.
-* Comment vérifier expérimentalement que l'implémentation d'une structure de données ou un algorithme a
-  bien la complexité temporelle théorique attendue ?
-
-Exercices sur Inginious
-==========================================
-
-.. note::
-   Vous devez faire ces exercices pour le mercredi de S3.
-
-1. `Ecriture de tests unitaires pour une stack <https://inginious.info.ucl.ac.be/course/LSINF1121-2016/m1stacktests>`_
-2. `Implementation d'une stack avec structure chainée <https://inginious.info.ucl.ac.be/course/LSINF1121-2016/m1stack>`_ 
-3. `Implementation d'une liste chainée circulaire et d'un iterateur <https://inginious.info.ucl.ac.be/course/LSINF1121-2016/Part1CircularLinkedList>`_
-
-Exercices théorique: deuxième partie
+Travaux Pratiques
 =======================================
 
 .. note::
-   Vous devez faire ces exercices pour le mercredi de S3.
+   Ces TPs sont à rendre et comptent pour l'évaluation finale.
 
-Exercice 1.2.1
-""""""""""""""
+TP3 : Analyse de données et visualisation avec Streamlit 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-Dans votre implémentation d'une liste chainée circulaire ci-dessous.
-Quelle est la complexité de la méthode
+**Objectif :** Créer une application web interactive d'analyse de données avec Streamlit.
 
+**Fonctionnalités requises :**
+- Permettre le téléchargement d'un fichier CSV
+- Afficher les premières lignes et les statistiques descriptives
+- Créer au moins 3 types de visualisations différentes (histogramme, boxplot, scatter plot)
+- Ajouter des widgets interactifs (selectbox, slider) pour filtrer les données
+- Personnaliser l'interface (titre, sidebar, sections)
 
-* `public void enqueue(Item item)`?
-* `public Item remove(int index)` ?
-* d'une séquence d'operations qui consiste à *créer un iterateur et ensuite itérer sur les k-premiers elements* ?
+**Consignes :**
+- Application fonctionnelle et bien structurée
+- Code commenté et organisé
+- Interface utilisateur intuitive
+- Gestion des erreurs (fichier invalide, colonnes manquantes)
 
-.. code-block:: java
+**À rendre avant la date limite indiquée par l'enseignant.**
 
 
-   import java.util.ConcurrentModificationException;
-   import java.util.Iterator;
-   import java.util.NoSuchElementException;
+TP4 : Analyse de données et visualisation avec Shiny 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-   public class CircularLinkedList<Item> implements Iterable<Item> {
-    private long nOp = 0; // count the number of operations
-    private int n;          // size of the stack
-    private Node  last;   // trailer of the list
+**Objectif :** Créer une application web interactive d'analyse de données avec Shiny.
 
-    // helper linked list class
-    private class Node {
-        private Item item;
-        private Node next;
-    }
+**Fonctionnalités requises :**
+- Interface avec sidebar pour les contrôles
+- Téléchargement et lecture d'un fichier CSV
+- Affichage du tableau de données
+- Au moins 3 visualisations interactives (graphiques réactifs)
+- Filtres interactifs (selectInput, sliderInput)
+- Calcul et affichage de statistiques descriptives
 
-    public CircularLinkedList() {
-        last = new Node(); // dummy node
-        last.next = last;
-        n = 1;
-    }
+**Consignes :**
+- Application avec structure ui/server claire
+- Code R bien organisé et commenté
+- Utilisation de reactive() pour la réactivité
+- Interface ergonomique et professionnelle
+- Gestion des erreurs
 
-    public boolean isEmpty() { return n == 1; }
-
-    public int size() { return n-1; }
-
-    private long nOp() { return nOp; }
-
-    /**
-     * Append an item at the end of the list
-     * @param item the item to append
-     */
-    public void enqueue(Item item) {
-        // TODO STUDENT: Implement add method
-    }
-
-    /**
-     * Removes the element at the specified position in this list.
-     * Shifts any subsequent elements to the left (subtracts one from their indices).
-     * Returns the element that was removed from the list.
-     */
-    public Item remove(int index) {
-        // TODO STUDENT: Implement remove method
-    }
-
-    /**
-     * Returns an iterator that iterates through the items in FIFO order.
-     * @return an iterator that iterates through the items in FIFO order.
-     */
-    public Iterator<Item> iterator() {
-        return new ListIterator();
-    }
-
-    /**
-     * Implementation of an iterator that iterates through the items in FIFO order.
-     *
-     */
-    private class ListIterator implements Iterator<Item> {
-        // TODO STUDENT: Implement the ListIterator
-    }
-
-   }
-
-Exercice 1.2.2
-""""""""""""""
-La notation post-fixe (ou `polonaise inverse <https://fr.wikipedia.org/wiki/Notation_polonaise_inverse>`_) est utilisée
-pour représenter des expressions algébriques.
-Nous ne considérons pour simplifier que des expressions post-fixes avec des entiers positifs
-et les opérateurs `+` et `*`. Par exemple `2 3 1 * + 9 *` dont le résultat vaut 45
-et le résultat de `4 20 + 3 5 1 * * +` est 39.
-
-1. Ecrivez un algorithme en Java pour évaluer une expression post-fixe au départ d'une chaine de n-caractères.
-2. Quelle structure de donnée utilisez vous ?
-3. Quelle est la complexité de votre algorithme (temporelle et spatiale) ?
-
-Pour rappel, voici comment on peut itérer sur les elements d'une chaine qui sont séparés par des espaces.
-
-.. code-block:: java
-
-
-    String in = "4 20 + 3 5 1 * * +";
-    StringTokenizer tokenizer = new StringTokenizer(in);
-    while (tokenizer.hasMoreTokens()) {
-         String element = tokenizer.nextToken();
-    }
-
-
-Exercice 1.2.3
-""""""""""""""
-
-La `programmation fonctionnelle <https://fr.wikipedia.org/wiki/Programmation_fonctionnelle>`_ est un paradigme de programmation de plus en plus important.
-Dans ce paradigme de programmation, les structures de données sont `immutables <https://en.wikipedia.org/wiki/Purely_functional_data_structure>`_ .
-Nous nous intéressons ici à l'implémentation d'une liste immutable appelée *FList* permettant d'être utilisée dans un cadre fonctionnel.
-Voici l'API d'une *FList*
-
-.. code-block:: java
-
-
-    public abstract class FList<A> implements Iterable<A> {
-
-        // creates an empty list
-        public static <A> FList<A> nil();
-
-        // prepend a to the list and return the new list
-        public final FList<A> cons(final A a);
-
-        public final boolean isNotEmpty();
-
-        public final boolean isEmpty();
-
-        public final int length();
-
-        // return the head element of the list
-        public abstract A head();
-
-        // return the tail of the list
-        public abstract FList<A> tail();
-
-        // return a list on which each element has been applied function f
-        public final <B> FList<B> map(Function<A,B> f);
-
-        // return a list on which only the elements that satisfies predicate are kept
-        public final FList<A> filter(Predicate<A> f);
-
-        // return an iterator on the element of the list
-        public Iterator<A> iterator();
-
-    }
-
-
-Comme vous pouvez vous en rendre compte, aucune des méthodes ne permet de modifier l'état de la liste.
-Voici un exemple de manipulation d'une telle liste.
-Si vous n'êtes pas familiers avec les `interfaces fonctionnelles <https://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html>`_  de Java8, 
-nous vous demandons de vous familiariser d'abord avec celles-ci.
-
-
-
-.. code-block:: java
-
-
-        FList<Integer> list = FList.nil();
-
-        for (int i = 0; i < 10; i++) {
-            list = list.cons(i);
-        }
-
-        list = list.map(i -> i+1);
-        // will print 1,2,...,11
-        for (Integer i: list) {
-            System.out.println(i);
-        }
-
-        list = list.filter(i -> i%2 == 0);
-        // will print 2,4,6,...,10
-        for (Integer i: list) {
-            System.out.println(i);
-        }
-
-
-Voici une implémentation partielle de la `FList`
-
-
-.. code-block:: java
-
-
-        import java.util.Iterator;
-        import java.util.NoSuchElementException;
-        import java.util.function.Function;
-        import java.util.function.Predicate;
-
-        public abstract class FList<A> implements Iterable<A> {
-
-            public final boolean isNotEmpty() {
-                return this instanceof Cons;
-            }
-
-            public final boolean isEmpty() {
-                return this instanceof Nil;
-            }
-
-            public final int length() {
-                // TODO
-            }
-
-            public abstract A head();
-
-            public abstract FList<A> tail();
-
-            public static <A> FList<A> nil() {
-                return (Nil<A>) Nil.INSTANCE;
-            }
-
-            public final FList<A> cons(final A a) {
-                return new Cons(a, this);
-            }
-
-            public final <B> FList<B> map(Function<A,B> f) {
-                // TODO
-            }
-
-            public final FList<A> filter(Predicate<A> f) {
-                // TODO
-            }
-
-
-            public Iterator<A> iterator() {
-                return new Iterator<A>() {
-                    // complete this class
-
-
-                    public boolean hasNext() {
-                      // TODO
-                    }
-
-                    public A next() {
-                      // TODO
-                    }
-
-                    public void remove() {
-                        throw new UnsupportedOperationException();
-                    }
-                };
-            }
-
-
-            private static final class Nil<A> extends FList<A> {
-                public static final Nil<Object> INSTANCE = new Nil();
-                // TODO
-            }
-
-            private static final class Cons<A> extends FList<A> {
-                // TODO
-            }
-
-
-        }
-
-
-Nous vous demandons de 
-
-
-* compléter cette implémentation, si possible utilisez autant que possible des méthodes récursives.
-* déterminer la complexité de chacune des méthodes.
-
-
-Ressources supplémentaires
-==========================
-
-.. toctree::
-   :maxdepth: 1
-
-   complexity
-
-.. Indices and tables
-.. ==================
-
-.. * :ref:`genindex`
-.. * :ref:`modindex`
-.. * :ref:`search`
-
-.. rubric:: Notes de bas de page
-
-.. [#adt] *abstract data type* (ADT) en anglais
-
-..
-    Vieille questions
-
-    - Comment faire en Java pour lire des données textuelles depuis un fichier et pour écrire des résultats
-    dans un fichier ASCII ?
-    Écrivez en Java une méthode générique*, c'est-à-dire aussi indépendante que possible de son utilisation
-    dans un contexte particulier, de lecture depuis un fichier texte.  Faites de même pour l'écriture dans un fichier ASCII.
-
-    - Comment faire en Java pour passer des arguments à un programme ? Soyez précis. Donnez un exemple
-
-    Code example
-
-    .. code-block:: java
-
-        b = true , x = 4, c = 5
-        b = false, x = 4, c = 2
-
-
-    Link example `IsLessOrEqualTest.java <https://bitbucket.org/minicp/minicp/src/HEAD/src/test/java/minicp/engine/constraints/IsEqualTest.java?at=master>`_
-
-    Image example
-
-    .. image:: dfs.svg
-        :scale: 50
-        :width: 250
-        :alt: DFS
+**À rendre avant la date limite indiquée par l'enseignant.**
