@@ -155,30 +155,30 @@ Le professeur propose plusieurs thèmes/situations parmi lesquels vous devez cho
 Critères d'évaluation
 """""""""""""""""""""
 
-Le projet sera évalué selon 4 composantes (voir grille détaillée) :
+Le projet sera évalué selon 4 composantes  :
 
-**1. Code Python (5 points)**
+**1. Code Python **
 
 * Fonctionnalité et exécution sans erreur
 * Structure et organisation
 * Utilisation appropriée des structures de données
 * Gestion des erreurs
 
-**2. Code R (5 points)**
+**2. Code R **
 
 * Fonctionnalité et exécution sans erreur
 * Structure et organisation
 * Utilisation appropriée des objets R
 * Gestion des erreurs
 
-**3. Analyse exploratoire (10 points)**
+**3. Analyse exploratoire **
 
 * Pertinence des questions de recherche
 * Profondeur de l'analyse
 * Justesse des statistiques calculées
 * Interprétation des résultats
 
-**4. Visualisations (10 points)**
+**4. Visualisations **
 
 * Choix approprié des types de graphiques
 * Qualité et lisibilité
