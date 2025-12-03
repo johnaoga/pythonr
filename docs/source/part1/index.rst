@@ -52,19 +52,10 @@ A lire / Aller plus loin
 Slides du cours :
 
 Documentation officielle :
-* Python : https://docs.python.org/fr/3/tutorial/
-* R : https://cran.r-project.org/doc/manuals/r-release/R-intro.html
 
 Livres de référence :
-* "Python pour les nuls" - John Paul Mueller
-* "R pour les débutants" - Emmanuel Paradis
-* "Automate the Boring Stuff with Python" - Al Sweigart
 
 Aller plus loin :
-* Exercices Python : https://www.codingbat.com/python
-* Exercices R : https://www.r-exercises.com/
-* Tutoriels interactifs : https://www.datacamp.com/
-
 
 Exercices théoriques
 =======================================
