@@ -2,23 +2,20 @@
 
 
 *************************************************************************************************
-Chapitre 2 | Manipulation de données et visualisation
+Module 2 | Introduction aux fondamentaux de R
 *************************************************************************************************
 
 Objectifs
 =========
 
-À l'issue de cette partie, chaque étudiant.e sera capable dans les deux langages (Python et R) de :
+À l'issue de ce module, chaque étudiant.e sera capable de :
 
-* Importer des données de différents formats (CSV, Excel, JSON)
-* Identifier et traiter les valeurs manquantes et aberrantes
-* Effectuer des transformations et des manipulations de données
-* Calculer des statistiques descriptives (moyennes, médianes, corrélations)
-* Créer des graphiques de base (histogrammes, boxplots, nuages de points)
-* Développer des visualisations avec les bibliothèques spécialisées
-* Personnaliser l'apparence des graphiques
-* Choisir le type de graphique approprié selon les données
-* Créer des applications web interactives avec Streamlit (Python) et Shiny (R)
+* Manipuler les objets de base du langage R (vecteurs, matrices, data frames, listes)
+* Créer et manipuler efficacement les structures de données en R
+* Utiliser les fonctions d'indexation et de sélection en R
+* Programmer des fonctions personnalisées en R
+* Comprendre le système de packages et installer des bibliothèques
+* Appliquer les bonnes pratiques de programmation en R
 
 
 Notes théoriques
@@ -27,180 +24,115 @@ Notes théoriques
 Exercice introductif
 """"""""""""""""""""
 
-1. Quels formats de données avez-vous déjà manipulés dans vos travaux académiques ou professionnels ?
-2. Comment traitez-vous actuellement les données manquantes ou incohérentes dans vos analyses ?
-3. Quels outils ou logiciels avez-vous utilisés pour créer des graphiques ? Quelles ont été leurs limites ?
-4. Selon vous, qu'est-ce qui rend une visualisation de données efficace ?
-5. Avez-vous déjà entendu parler de bibliothèques comme pandas, matplotlib, ggplot2 ou dplyr ?
+1. Avez-vous déjà utilisé R ou RStudio ? Quelles ont été vos premières impressions ?
+2. Qu'est-ce qui différencie R des autres langages de programmation selon vous ?
+3. Pourquoi R est-il particulièrement populaire en statistiques et en analyse de données ?
+4. Connaissez-vous la différence entre un vecteur et une liste en R ?
+5. Quels sont selon vous les avantages d'utiliser R plutôt qu'Excel pour l'analyse statistique ?
 
 
-Tableau récapitulatif : Équivalences Python ↔ R
-""""""""""""""""""""""""""""""""""""""""""""""""
+Notes
+""""""
+**R : Langage spécialisé pour l'analyse de données**
 
-.. list-table::
-   :header-rows: 1
-   :widths: 35 35 30
+- R : langage open-source conçu spécifiquement pour les statistiques et l'analyse de données
+- RStudio : environnement de développement intégré (IDE) qui facilite l'utilisation de R
+- Syntaxe orientée vers les manipulations statistiques et vectorielles
+- Vaste écosystème de packages spécialisés (CRAN : Comprehensive R Archive Network)
 
-   * - Python
-     - R
-     - Fonction
-   * - **Import de données**
-     -
-     -
-   * - ``pd.read_csv()``
-     - ``read.csv()``
-     - Lire fichier CSV
-   * - ``pd.read_excel()``
-     - ``read_excel()`` (readxl)
-     - Lire fichier Excel
-   * - ``pd.read_json()``
-     - ``fromJSON()`` (jsonlite)
-     - Lire fichier JSON
-   * - **Manipulation de données**
-     -
-     -
-   * - ``df[['col1', 'col2']]``
-     - ``select(df, col1, col2)``
-     - Sélectionner colonnes
-   * - ``df[df['age'] > 18]``
-     - ``filter(df, age > 18)``
-     - Filtrer lignes
-   * - ``df.sort_values('col')``
-     - ``arrange(df, col)``
-     - Trier données
-   * - ``df['new'] = df['a'] + df['b']``
-     - ``mutate(df, new = a + b)``
-     - Créer/modifier colonne
-   * - ``df.groupby('cat').mean()``
-     - ``group_by() %>% summarise()``
-     - Grouper et agréger
-   * - ``pd.merge(df1, df2)``
-     - ``left_join(df1, df2)``
-     - Fusionner DataFrames
-   * - **Valeurs manquantes**
-     -
-     -
-   * - ``df.isna()``
-     - ``is.na(df)``
-     - Détecter valeurs manquantes
-   * - ``df.dropna()``
-     - ``na.omit(df)``
-     - Supprimer lignes avec NA
-   * - ``df.fillna(value)``
-     - ``replace_na(df, value)``
-     - Remplacer NA
-   * - **Statistiques descriptives**
-     -
-     -
-   * - ``df['col'].mean()``
-     - ``mean(df$col)``
-     - Calculer moyenne
-   * - ``df['col'].median()``
-     - ``median(df$col)``
-     - Calculer médiane
-   * - ``df['col'].std()``
-     - ``sd(df$col)``
-     - Écart-type
-   * - ``df.corr()``
-     - ``cor(df)``
-     - Matrice de corrélation
-   * - ``df.describe()``
-     - ``summary(df)``
-     - Statistiques complètes
-   * - **Visualisation**
-     -
-     -
-   * - ``matplotlib.pyplot``
-     - ``ggplot2``
-     - Bibliothèque principale
-   * - ``plt.hist()``
-     - ``geom_histogram()``
-     - Histogramme
-   * - ``plt.boxplot()``
-     - ``geom_boxplot()``
-     - Boxplot
-   * - ``plt.scatter()``
-     - ``geom_point()``
-     - Nuage de points
-   * - ``plt.plot()``
-     - ``geom_line()``
-     - Courbe
-   * - ``plt.bar()``
-     - ``geom_bar()``
-     - Diagramme en barres
-   * - ``seaborn.heatmap()``
-     - ``geom_tile()``
-     - Carte de chaleur
-   * - ``plt.title()``
-     - ``ggtitle()``
-     - Ajouter titre
-   * - ``plt.xlabel() / ylabel()``
-     - ``xlab() / ylab()``
-     - Labels des axes
+**Structures de données fondamentales en R**
 
+- **Vecteurs** : séquences homogènes d'éléments du même type
+  
+  * Numériques : ``c(1, 2, 3, 4, 5)``
+  * Caractères : ``c("a", "b", "c")``
+  * Logiques : ``c(TRUE, FALSE, TRUE)``
+  
+- **Matrices** : tableaux à deux dimensions d'éléments homogènes
+  
+  * Création : ``matrix(1:9, nrow=3, ncol=3)``
+  * Toutes les valeurs doivent être du même type
+  
+- **Data frames** : tableaux structurés où chaque colonne peut avoir un type différent
+  
+  * Structure la plus utilisée pour l'analyse de données
+  * Équivalent des tableaux Excel ou des bases de données
+  * Création : ``data.frame(nom=c("Jean", "Marie"), age=c(25, 30))``
+  
+- **Listes** : conteneurs flexibles pouvant contenir différents types d'objets
+  
+  * Peuvent contenir vecteurs, matrices, data frames, autres listes
+  * Création : ``list(vecteur=1:5, texte="bonjour", data=df)``
 
-Applications web interactives
-""""""""""""""""""""""""""""""
+**Différence clé : Indexation**
 
-**Streamlit (Python)**
+- R indexe à partir de 1 (le premier élément est ``x[1]``)
+- Python indexe à partir de 0 (le premier élément est ``x[0]``)
 
-Streamlit permet de créer rapidement des applications web de data science sans connaissances en développement web.
+**Fonctions d'indexation et de sélection**
 
-* **Installation** : ``pip install streamlit``
-* **Lancer une app** : ``streamlit run app.py``
-* **Composants de base** :
+- **Sélection par position** : ``x[3]``, ``df[1, 2]`` (ligne 1, colonne 2)
+- **Sélection par nom** : ``df$nom``, ``df[["nom"]]``, ``df["nom"]``
+- **Sélection conditionnelle** : ``x[x > 5]``, ``df[df$age > 20, ]``
+- **Sélection de plages** : ``x[1:5]`` (éléments 1 à 5)
+- **Exclusion** : ``x[-3]`` (tous sauf le 3ème), ``x[-c(1, 3)]`` (exclure 1 et 3)
 
-  * ``st.title("Titre")`` : Ajouter un titre
-  * ``st.write(data)`` : Afficher du texte ou des données
-  * ``st.dataframe(df)`` : Afficher un DataFrame interactif
-  * ``st.line_chart(df)`` : Graphique en ligne
-  * ``st.bar_chart(df)`` : Graphique en barres
-  * ``st.pyplot(fig)`` : Afficher un graphique matplotlib
-  * ``st.selectbox()`` : Menu déroulant
-  * ``st.slider()`` : Curseur de sélection
-  * ``st.file_uploader()`` : Télécharger un fichier
+**Fonctions en R**
 
-**Shiny (R)**
+- Définition avec ``function()``
+- Peuvent avoir des paramètres avec valeurs par défaut
+- Retournent automatiquement la dernière expression évaluée
+- Peuvent retourner explicitement avec ``return()``
 
-Shiny permet de créer des applications web interactives pour visualiser et analyser des données en R.
+**Packages R**
 
-* **Installation** : ``install.packages("shiny")``
-* **Structure de base** :
+- Installation : ``install.packages("nom_package")``
+- Chargement : ``library(nom_package)`` ou ``require(nom_package)``
+- Packages essentiels : ``dplyr``, ``ggplot2``, ``tidyr``, ``readr``
 
-  * ``ui`` : Interface utilisateur (layout, inputs, outputs)
-  * ``server`` : Logique de l'application (calculs, graphiques)
-  * ``shinyApp(ui, server)`` : Lancer l'application
+**Bonnes pratiques R**
 
-* **Composants UI** :
+- Utiliser des noms de variables explicites et en minuscules
+- Préférer ``<-`` à ``=`` pour l'assignation (convention R)
+- Commenter le code avec ``#``
+- Utiliser le pipe ``%>%`` (dplyr) pour enchaîner les opérations
+- Organiser le code en fonctions réutilisables
+- Tester régulièrement son code avec des exemples simples
 
-  * ``titlePanel("Titre")`` : Titre de l'app
-  * ``sidebarLayout()`` : Layout avec barre latérale
-  * ``selectInput()`` : Menu déroulant
-  * ``sliderInput()`` : Curseur
-  * ``plotOutput("plot")`` : Zone pour afficher un graphique
-  * ``tableOutput("table")`` : Zone pour afficher un tableau
+**Opérations vectorielles**
 
-* **Composants Server** :
-
-  * ``output$plot <- renderPlot({...})`` : Générer un graphique
-  * ``output$table <- renderTable({...})`` : Générer un tableau
-  * ``input$variable`` : Accéder aux entrées utilisateur
-  * ``reactive({...})`` : Créer des données réactives
-
-
-
+- R applique automatiquement les opérations sur tous les éléments d'un vecteur
+- Recyclage : R réutilise les éléments courts pour s'adapter aux longs
+- Exemple : ``c(1, 2, 3) + c(10, 20, 30)`` donne ``c(11, 22, 33)``
 
 
 À lire / Aller plus loin
 =======================================
 
-Slides du cours :
+**Slides du cours :**
 
-Livres de référence :
+[À compléter par l'enseignant]
 
+**Documentation officielle :**
 
-Tutoriels :
+- `Documentation R officielle <https://www.r-project.org/>`_
+- `RStudio Resources <https://education.rstudio.com/>`_
+- `R for Data Science (livre gratuit en ligne) <https://r4ds.had.co.nz/>`_
 
+**Livres de référence :**
+
+- *R for Data Science* par Hadley Wickham et Garrett Grolemund
+- *The Art of R Programming* par Norman Matloff
+- *Advanced R* par Hadley Wickham (niveau avancé)
+- *R Cookbook* par Paul Teetor
+
+**Aller plus loin :**
+
+- `R-bloggers <https://www.r-bloggers.com/>`_ - Blog communautaire R
+- `Quick-R <https://www.statmethods.net/>`_ - Guide de référence rapide
+- `DataCamp R Tutorials <https://www.datacamp.com/courses/free-introduction-to-r>`_
+- `CRAN Task Views <https://cran.r-project.org/web/views/>`_ - Packages par domaine
+- `Stack Overflow - R <https://stackoverflow.com/questions/tagged/r>`_
 
 
 Exercices théoriques
@@ -209,89 +141,192 @@ Exercices théoriques
 .. note::
    Vous devez faire ces exercices avant la prochaine séance.
 
-Exercice 1 : Import et exploration
-"""""""""""""""""""""""""""""""""""
+Exercice 1 : Manipulation de vecteurs
+""""""""""""""""""""""""""""""""""""""
 
-1. Importez un fichier CSV contenant des données d'étudiants en Python et R
-2. Affichez les 10 premières lignes, les dimensions et les types de colonnes
-3. Calculez les statistiques descriptives (moyenne, médiane, écart-type) pour les notes
-4. Identifiez le nombre de valeurs manquantes par colonne
+1. Créez un vecteur numérique contenant les nombres de 1 à 20
+2. Sélectionnez uniquement les nombres pairs de ce vecteur
+3. Calculez la somme, la moyenne, le minimum et le maximum du vecteur
+4. Créez un vecteur de caractères contenant 5 prénoms
+5. Créez un vecteur logique indiquant si chaque prénom a plus de 5 lettres
+6. Combinez deux vecteurs avec ``c()`` et vérifiez le résultat
 
-Exercice 2 : Nettoyage et transformation
+Exercice 2 : Travail avec les matrices
+"""""""""""""""""""""""""""""""""""""""
+
+1. Créez une matrice 4x4 contenant les nombres de 1 à 16
+2. Extrayez la deuxième ligne de la matrice
+3. Extrayez la troisième colonne de la matrice
+4. Calculez la somme de chaque ligne avec ``rowSums()``
+5. Calculez la somme de chaque colonne avec ``colSums()``
+6. Transposez la matrice avec ``t()``
+
+Exercice 3 : Manipulation de data frames
 """""""""""""""""""""""""""""""""""""""""
 
-1. Supprimez les lignes avec valeurs manquantes dans la colonne "note"
-2. Remplacez les valeurs manquantes de la colonne "âge" par la moyenne
-3. Filtrez les données pour ne garder que les étudiants de plus de 20 ans
-4. Créez une colonne "mention" : Passable (<12), AB (12-14), B (14-16), TB (>16)
-5. Calculez la moyenne par mention
+1. Créez un data frame avec 5 étudiants contenant : nom, age, note1, note2, note3
+2. Affichez les dimensions du data frame avec ``dim()``
+3. Affichez la structure avec ``str()``
+4. Sélectionnez uniquement la colonne "nom"
+5. Sélectionnez les étudiants ayant plus de 20 ans
+6. Ajoutez une colonne "moyenne" qui calcule la moyenne des trois notes
+7. Triez le data frame par ordre décroissant de moyenne
+8. Affichez un résumé statistique avec ``summary()``
 
-Exercice 3 : Visualisation
-"""""""""""""""""""""""""""
+Exercice 4 : Travail avec les listes
+"""""""""""""""""""""""""""""""""""""
 
-Créez les visualisations suivantes en Python ET en R :
+1. Créez une liste contenant : un vecteur numérique, un vecteur de caractères, et un data frame
+2. Nommez les éléments de la liste
+3. Accédez au deuxième élément avec ``[[2]]`` et avec ``$nom``
+4. Ajoutez un nouvel élément à la liste
+5. Affichez la longueur de la liste avec ``length()``
 
-1. Histogramme de la distribution des notes
-2. Boxplot des notes par mention
-3. Scatter plot entre l'âge et la note
-4. Bar plot du nombre d'étudiants par mention
-5. Personnalisez chaque graphique (titre, labels, couleurs)
+Exercice 5 : Fonctions personnalisées
+""""""""""""""""""""""""""""""""""""""
 
-Exercice 4 : Analyse comparative
-"""""""""""""""""""""""""""""""""
+1. Créez une fonction qui calcule la factorielle d'un nombre (avec une boucle)
+2. Créez une fonction qui convertit des degrés Celsius en Fahrenheit
+3. Créez une fonction qui prend un vecteur et retourne le nombre d'éléments positifs
+4. Créez une fonction qui prend un data frame et retourne un résumé personnalisé :
+   
+   * Nombre de lignes et colonnes
+   * Nombre de valeurs manquantes
+   * Noms des colonnes numériques
+   
+5. Créez une fonction avec des paramètres par défaut qui calcule des statistiques (moyenne, médiane, écart-type)
 
-1. Comparez deux jeux de données (ex: notes 2023 vs 2024)
-2. Calculez les statistiques pour chaque année
-3. Créez des visualisations comparatives
-4. Identifiez les différences majeures et interprétez les résultats
+Exercice 6 : Indexation avancée
+""""""""""""""""""""""""""""""""
 
+1. Créez un data frame avec 10 étudiants (nom, age, filière, note)
+2. Sélectionnez les étudiants en "Informatique" avec une note > 15
+3. Créez un sous-ensemble contenant uniquement les colonnes "nom" et "note"
+4. Utilisez ``subset()`` pour filtrer les données
+5. Utilisez l'opérateur ``%in%`` pour sélectionner plusieurs filières
+6. Comptez le nombre d'étudiants par filière avec ``table()``
 
 
 Travaux Pratiques
 =======================================
 
 .. note::
-   Ces TPs sont à rendre et comptent pour l'évaluation finale.
+   Ces TPs sont à rendre et comptent pour l'évaluation finale. Bien que ces TPs utilisent R, 
+   ils s'appuient aussi sur les concepts de programmation vus en Python au Module 1.
 
-TP3 : Analyse de données et visualisation avec Streamlit 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+TP1 : Fondamentaux de R - Jeu "Plus ou Moins"
+""""""""""""""""""""""""""""""""""""""""""""""
 
-**Objectif :** Créer une application web interactive d'analyse de données avec Streamlit.
+**Objectif :** Mettre en pratique les structures de données et de contrôle de base en R.
+
+**Description du jeu :**
+
+Créez un jeu "Plus ou Moins" en R où :
+
+- Le programme génère un nombre aléatoire entre 1 et 100
+- L'utilisateur doit deviner le nombre
+- Le programme indique si le nombre à trouver est plus grand ou plus petit
+- Le jeu compte le nombre de tentatives
+- Le jeu se termine quand l'utilisateur trouve le nombre
 
 **Fonctionnalités requises :**
-- Permettre le téléchargement d'un fichier CSV
-- Afficher les premières lignes et les statistiques descriptives
-- Créer au moins 3 types de visualisations différentes (histogramme, boxplot, scatter plot)
-- Ajouter des widgets interactifs (selectbox, slider) pour filtrer les données
-- Personnaliser l'interface (titre, sidebar, sections)
+
+1. Génération d'un nombre aléatoire 
+2. Boucle de jeu avec demande de saisie utilisateur 
+3. Validation des entrées (nombre entre 1 et 100)
+4. Comparaison et affichage d'indices ("Plus grand", "Plus petit")
+5. Compteur de tentatives
+6. Message de victoire avec le nombre de tentatives
+7. Option de rejouer
+
+**Fonctionnalités bonus (optionnelles) :**
+
+- Limite du nombre de tentatives (mode difficile)
+- Système de score basé sur le nombre de tentatives
+- Historique des parties jouées (stocké dans un data frame)
+- Différents niveaux de difficulté (plage de nombres variable)
 
 **Consignes :**
-- Application fonctionnelle et bien structurée
-- Code commenté et organisé
-- Interface utilisateur intuitive
-- Gestion des erreurs (fichier invalide, colonnes manquantes)
+
+- Code bien structuré avec des fonctions
+- Gestion des erreurs et validation des entrées
+- Commentaires explicatifs pour chaque fonction
+- Respect des conventions de nommage R
+- Testez votre programme avec plusieurs scénarios
+
+
+**Critères d'évaluation :**
+
+- Fonctionnalité : Le programme fonctionne correctement (40%)
+- Structure et organisation du code (25%)
+- Gestion des erreurs et validation (20%)
+- Documentation et commentaires (15%)
 
 **À rendre avant la date limite indiquée par l'enseignant.**
 
+**Format de rendu :** Un fichier ``tp1_plusoumoins_nom.R``
 
-TP4 : Analyse de données et visualisation avec Shiny 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-**Objectif :** Créer une application web interactive d'analyse de données avec Shiny.
+TP2 : Le Pendu en R
+"""""""""""""""""""
+
+**Objectif :** Créer un jeu du pendu en utilisant les concepts avancés de R.
+
+**Description du jeu :**
+
+Créez un jeu du pendu classique en R où :
+
+- Le programme choisit un mot aléatoirement dans un vecteur prédéfini
+- L'utilisateur doit deviner le mot lettre par lettre
+- Le programme affiche le mot avec des underscores (_) pour les lettres non trouvées
+- L'utilisateur a un nombre limité de tentatives (ex: 6)
+- Le jeu se termine par une victoire (mot trouvé) ou une défaite (tentatives épuisées)
 
 **Fonctionnalités requises :**
-- Interface avec sidebar pour les contrôles
-- Téléchargement et lecture d'un fichier CSV
-- Affichage du tableau de données
-- Au moins 3 visualisations interactives (graphiques réactifs)
-- Filtres interactifs (selectInput, sliderInput)
-- Calcul et affichage de statistiques descriptives
+
+1. Vecteur de mots prédéfini (au moins 10 mots)
+2. Sélection aléatoire d'un mot avec 
+3. Affichage du mot masqué (ex: "_ _ _ _ _")
+4. Saisie et validation d'une lettre
+5. Mise à jour de l'affichage si la lettre est correcte
+6. Gestion du nombre de tentatives restantes
+7. Affichage des lettres déjà proposées 
+8. Messages de victoire ou de défaite
+
+**Fonctionnalités bonus (optionnelles) :**
+
+- Différents niveaux de difficulté (longueur des mots, nombre de tentatives)
+- Catégories de mots (animaux, pays, sports) stockées dans une liste
+- Système de score et de vies
+- Possibilité de proposer le mot complet
+- Statistiques de jeu (taux de réussite, meilleurs scores) dans un data frame
 
 **Consignes :**
-- Application avec structure ui/server claire
-- Code R bien organisé et commenté
-- Utilisation de reactive() pour la réactivité
-- Interface ergonomique et professionnelle
-- Gestion des erreurs
+
+- Code bien structuré avec des fonctions réutilisables
+- Gestion des erreurs (entrées invalides, lettres déjà proposées)
+- Commentaires explicatifs détaillés
+- Utilisation appropriée des structures de données R (vecteurs, listes, data frames)
+- Tests pour les fonctions principales
+
+
+**Astuces R utiles pour ce TP :**
+
+- ``strsplit(mot, "")[[1]]`` : Séparer un mot en lettres
+- ``paste(vecteur, collapse = " ")`` : Joindre des éléments avec un séparateur
+- ``toupper()`` / ``tolower()`` : Convertir en majuscules/minuscules
+- ``%in%`` : Vérifier si un élément est dans un vecteur
+- ``all()`` : Vérifier si tous les éléments sont TRUE
+- ``cat()`` : Afficher du texte (mieux que ``print()`` pour le formatage)
+
+**Critères d'évaluation :**
+
+- Fonctionnalité complète du jeu (35%)
+- Qualité de la structure et du code (25%)
+- Gestion robuste des erreurs (20%)
+- Documentation et clarté du code (15%)
+- Créativité et fonctionnalités bonus (5%)
 
 **À rendre avant la date limite indiquée par l'enseignant.**
+
+**Format de rendu :** Un fichier ``tp2_pendu_nom.R`` et un fichier ``README.txt`` expliquant comment jouer
