@@ -263,9 +263,6 @@ Calendrier et modalités
 
 **Dates importantes**
 
-- **Semaine 1-2** : Choix du dataset et validation par le professeur
-- **Semaine 3-4** : Développement du projet
-- **Semaine 5** : Finalisation et tests
 - **Deadline** : [Date précise fournie par l'enseignant]
 
 **Modalités de rendu**
