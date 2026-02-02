@@ -4,16 +4,19 @@
 Organisation du cours
 *********************
 
-L'objectif de ce cours est de former les étudiants au développement de solutions d'analyse de données en utilisant les langages Python et R, en suivant une démarche comprenant la manipulation des structures de données, l'analyse exploratoire et la visualisation.
+L'objectif de ce cours est l'apprentissage de la programmation en Python et R (aspects intermédiaire et avancé). Ce cours utilise l'analyse de données comme étude de cas (Python et R étant des outils essentiels pour l'analyse de données). Nous suivons une démarche comprenant 
+- le rappel des concepts fondamentaux de programmation (en Python et R)
+- la manipulation des structures de données, 
+- l'analyse et manipulation des données, 
+- la visualisation et le dashboarding.
 
 A la fin de ce cours l'étudiant doit être capable de:
 
 * Maîtriser les structures de données fondamentales en Python (listes, dictionnaires, tuples) et en R (vecteurs, data frames, listes)
-* Importer, nettoyer et transformer des jeux de données de formats variés (CSV, Excel, JSON)
-* Effectuer des analyses statistiques descriptives et exploratoires (moyennes, médianes, corrélations)
+* Utiliser Python et/ou R pour importer, nettoyer et transformer des jeux de données de formats variés (CSV, Excel, JSON)
+* Effectuer des operations (moyennes, médianes, corrélations) variées sur des données en utilisant Python et/ou R
 * Créer des visualisations de données pertinentes en utilisant les bibliothèques appropriées (matplotlib, seaborn pour Python ; ggplot2 pour R)
-* Comparer les approches Python et R pour choisir l'outil approprié selon le type d'analyse
-
+* Choisir l'outil (Python et/ou R) adequat pour les taches du quotidien
 
 
 Pédagogie
@@ -25,7 +28,7 @@ La pédagogie utilisée est mixte. Nous alternerons des:
 * Séances de laboratoires basées sur le modèle de l'apprentissage par soi-même et par projet
 * Travaux pratiques à faire après chaque module
 
-Par conséquent, les étudiants doivent impérativement travailler de manière autonome au jour le jour pour graduellement comprendre et développer leurs compétences en analyse de données.
+Par conséquent, les étudiants doivent impérativement travailler de manière autonome au jour le jour pour graduellement comprendre et développer/affiner leurs compétences.
 
 Répartition du cours
 =======================================
@@ -36,9 +39,9 @@ Les principales parties sont :
 
 * :doc:`Part 1 <../part1/index>`: Introduction aux fondamentaux de Python
 * :doc:`Part 2 <../part2/index>`: Introduction aux fondamentaux de R
-* :doc:`Part 3 <../part3/index>`: Analyse et manipulation de données
-* :doc:`Part 4 <../part4/index>`: Visualisation de données
-* :doc:`Part 5 <../part5/index>`: Projet d'analyse de données
+* :doc:`Part 3 <../part3/index>`: Analyse et manipulation de données avec Python et R
+* :doc:`Part 4 <../part4/index>`: Visualisation avec Python et R
+* :doc:`Part 5 <../part5/index>`: Projet
 
 
 Évaluation
@@ -52,32 +55,27 @@ L'examen comprend deux parties :
 
 * **Partie 1 : QCM** - Questions de connaissance et de compréhension sur les structures de données Python et R
 * **Partie 2 : Complétion de code** - Exercices pratiques évaluant :
-   
-   * Manipulation des listes et dictionnaires
-   * Analyse statistique descriptive
-   * Création de visualisations
 
 **2. Travaux Pratiques (40%)**
 
 Les TPs incluent :
 
 * **TP0** : CodingBat (Bonus - points supplémentaires)
-* **TP1** : Fondamentaux de Python et R - Plus ou Moins (Modules 1 et 2) - 8%
-* **TP2** : Niveau Intermédiaire - Le Pendu (Modules 1 et 2) - 8%
-* **TP3** : Analyse de données et visualisation avec Streamlit (Modules 3 et 4) - 8%
-* **TP4** : Analyse de données et visualisation avec Shiny (Modules 3 et 4) - 8%
-* **TD-Exercices** : 50 exercices (Tous modules) - 8%
+* **TP1** : Fondamentaux de Python et R - Plus ou Moins (Modules 1 et 2)
+* **TP2** : Niveau Intermédiaire - Le Pendu (Modules 1 et 2)
+* **TP3** : Analyse de données et visualisation avec Streamlit (Modules 3 et 4)
+* **TP4** : Analyse de données et visualisation avec Shiny (Modules 3 et 4)
+* **TD-Exercices** : 50 exercices (Tous modules)
 
 **3. Projet d'analyse de données (30%)**
 
 Le projet comprend :
 
 * Formulation de questions de recherche à partir d'un jeu de données
-* Développement de code Python fonctionnel et optimisé
-* Développement de code R fonctionnel et optimisé
-* Réalisation d'une analyse exploratoire complète et approfondie
-* Création de visualisations excellentes, esthétiques et informatives
-* Rendu du code au professeur
+* Développement de code Python/R fonctionnel
+* Résolution d'un problème en utilisant Python/R
+* Création d'un dashboard avec Streamlit/Shiny
+
 
 **Note finale = 30% Examen + 40% TPs + 30% Projet**
 
