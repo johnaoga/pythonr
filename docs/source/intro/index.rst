@@ -32,17 +32,13 @@ La pédagogie utilisée est mixte. Nous alternerons des:
 Par conséquent, les étudiants doivent impérativement travailler de manière autonome au jour le jour pour graduellement comprendre et développer/affiner leurs compétences.
 
 Répartition du cours
-=======================================
+====================
 
-Le cours est organisé en parties de plusieurs chapitres.
+Le cours est divisé en 3 parties distinctes :
 
-Les principales parties sont :
-
-* :doc:`Part 1 <../part1/index>`: Introduction aux fondamentaux de Python
-* :doc:`Part 2 <../part2/index>`: Introduction aux fondamentaux de R
-* :doc:`Part 3 <../part3/index>`: Analyse et manipulation de données avec Python et R
-* :doc:`Part 4 <../part4/index>`: Visualisation avec Python et R
-* :doc:`Part 5 <../part5/index>`: Projet
+1. **Partie 1 : Introduction aux fondamentaux** - Introduction à la programmation et aux technologies émergentes, fondamentaux de Python et R
+2. **Partie 2 : Analyse de données et visualisation avec Python et R** - Manipulation et nettoyage de données, visualisation, et création d'applications web interactives
+3. **Partie 3 : Projet d'application** - Mise en pratique sur des données réelles
 
 
 Évaluation

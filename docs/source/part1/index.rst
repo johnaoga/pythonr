@@ -2,19 +2,49 @@
 
 
 *************************************************************************************************
-Module 1 | Introduction aux fondamentaux de Python
+Partie 1 | Introduction aux fondamentaux
 *************************************************************************************************
+
+Vue d'ensemble
+==============
+
+Cette première partie présente les fondamentaux de la programmation avec Python et R. Elle commence par une introduction 
+à la programmation et aux technologies émergentes, puis explore les bases de Python et R de manière approfondie.
 
 Objectifs
 =========
 
-À l'issue de ce module, chaque étudiant.e sera capable de :
+À l'issue de cette partie, chaque étudiant.e sera capable de :
 
-* Maîtriser les structures de données fondamentales en Python (listes, dictionnaires, tuples)
-* Créer et manipuler efficacement les objets de base en Python
-* Implémenter des structures de contrôle (conditions, boucles)
-* Définir et utiliser des fonctions avec paramètres
+**Python :**
+
+* Décrire les structures de données fondamentales en Python (listes, dictionnaires, tuples)
+* Manipuler ces objets en Python
+* Utiliser les structures de contrôle (conditions, boucles) adaptées au contexte
+* Utiliser les fonctions de tout genre (de base, les apply, les lambda, les fonctions anonymes, ...) en Python
+* Utiliser les packages Python pour étendre les fonctionnalités de base
+* Utiliser les bonnes pratiques de programmation en Python
 * Gérer les erreurs et les exceptions dans un programme Python
+
+**R :**
+
+* Décrire les objets de base du langage R (vecteurs, matrices, data frames, listes)
+* Manipuler ces objets en R
+* Utiliser les fonctions R et comprendre la vectorisation
+* Maîtriser les structures de contrôle en R
+* Utiliser les packages R essentiels
+* Appliquer les bonnes pratiques de programmation en R
+
+Organisation
+============
+
+.. toctree::
+   :maxdepth: 2
+   :numbered:
+
+   chap1
+   chap2
+   chap3
 
 
 Notes théoriques

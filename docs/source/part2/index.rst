@@ -2,20 +2,55 @@
 
 
 *************************************************************************************************
-Module 2 | Introduction aux fondamentaux de R
+Partie 2 | Analyse de données et visualisation avec Python et R
 *************************************************************************************************
+
+Vue d'ensemble
+==============
+
+Cette partie présente les techniques essentielles pour l'analyse et la visualisation de données en Python et R.
+Elle couvre la manipulation et le nettoyage de données, la création de visualisations efficaces, et le développement
+d'applications web interactives pour le partage des analyses.
 
 Objectifs
 =========
 
-À l'issue de ce module, chaque étudiant.e sera capable de :
+À l'issue de cette partie, chaque étudiant.e sera capable dans les deux langages (Python et R) de :
 
-* Manipuler les objets de base du langage R (vecteurs, matrices, data frames, listes)
-* Créer et manipuler efficacement les structures de données en R
-* Utiliser les fonctions d'indexation et de sélection en R
-* Programmer des fonctions personnalisées en R
-* Comprendre le système de packages et installer des bibliothèques
-* Appliquer les bonnes pratiques de programmation en R
+**Manipulation de données :**
+
+* Importer des données de différents formats (CSV, Excel, JSON)
+* Identifier et traiter les valeurs manquantes et aberrantes
+* Effectuer des transformations et des manipulations de données
+* Calculer des statistiques descriptives (moyennes, médianes, corrélations)
+* Filtrer, trier et grouper des données
+* Fusionner et joindre des ensembles de données
+
+**Visualisation :**
+
+* Créer des graphiques de base (histogrammes, boxplots, nuages de points)
+* Développer des visualisations avec les bibliothèques spécialisées (matplotlib, seaborn, ggplot2)
+* Personnaliser l'apparence des graphiques (couleurs, légendes, titres, axes)
+* Choisir le type de graphique approprié selon les données et l'objectif
+* Communiquer efficacement des insights à travers des visualisations
+
+**Applications web :**
+
+* Créer des applications web interactives avec Streamlit (Python) et Shiny (R)
+* Développer des dashboards pour l'exploration de données
+* Implémenter des filtres et contrôles interactifs
+* Déployer et partager des applications d'analyse
+
+Organisation
+============
+
+.. toctree::
+   :maxdepth: 2
+   :numbered:
+
+   chap1
+   chap2
+   chap3
 
 
 Notes théoriques
