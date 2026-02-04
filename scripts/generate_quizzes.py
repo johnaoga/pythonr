@@ -133,26 +133,39 @@ def escape_html(text: str) -> str:
     return html.escape(text)
 
 
+def format_code_for_html(code: str, lang: str) -> str:
+    """Format code block for HTML, preserving indentation and newlines."""
+    # Escape HTML special characters
+    code_escaped = html.escape(code.strip())
+    # Preserve indentation: convert leading spaces to &nbsp;
+    lines = code_escaped.split('\n')
+    formatted_lines = []
+    for line in lines:
+        # Count leading spaces and convert to &nbsp;
+        stripped = line.lstrip(' ')
+        indent_count = len(line) - len(stripped)
+        indent = '&nbsp;' * indent_count
+        formatted_lines.append(indent + stripped)
+    # Join with <br> for line breaks
+    code_html = '<br>'.join(formatted_lines)
+    return f'<pre><code class="language-{lang}">{code_html}</code></pre>'
+
+
 def markdown_to_html(text: str) -> str:
     """Convert markdown to HTML, handling code blocks and newlines."""
-    # Handle fenced code blocks first (```language ... ```)
+    # Handle fenced code blocks (```language ... ```)
     def replace_code_block(match):
         lang = match.group(1) or ''
         code = match.group(2)
-        # Escape HTML in code, preserve structure with <br>
-        code_escaped = html.escape(code.strip())
-        code_html = code_escaped.replace('\n', '<br>')
-        return f'<pre><code class="language-{lang}">{code_html}</code></pre>'
+        return format_code_for_html(code, lang)
     
-    text = re.sub(r'```(\w*)\n(.*?)```', replace_code_block, text, flags=re.DOTALL)
+    text = re.sub(r'```(\w*)\n?(.*?)```', replace_code_block, text, flags=re.DOTALL)
     
-    # Handle {python} style code blocks
+    # Handle {python}, {cpp}, {r} style code blocks
     def replace_brace_code(match):
         lang = match.group(1) or ''
         code = match.group(2)
-        code_escaped = html.escape(code.strip())
-        code_html = code_escaped.replace('\n', '<br>')
-        return f'<pre><code class="language-{lang}">{code_html}</code></pre>'
+        return format_code_for_html(code, lang)
     
     text = re.sub(r'\{(\w+)\}\n(.*?)(?=\n\n|$)', replace_brace_code, text, flags=re.DOTALL)
     
