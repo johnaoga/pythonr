@@ -5,6 +5,8 @@ on:
     branches:
       - main
       - master
+  issues:
+    types: [opened, edited, labeled, closed]
   workflow_dispatch:
 
 permissions:
@@ -34,6 +36,14 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r docs/requirements.txt
+          pip install requests pyyaml
+
+      - name: Generate quizzes from issues
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: |
+          python scripts/generate_quizzes.py
 
       - name: Build documentation
         run: |

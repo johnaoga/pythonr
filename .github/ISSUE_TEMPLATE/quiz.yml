@@ -1,0 +1,90 @@
+name: "📝 Quiz Question"
+description: "Create a new quiz question for Part 6"
+title: "[QUIZ] "
+labels: ["quiz"]
+body:
+  - type: dropdown
+    id: quiz_id
+    attributes:
+      label: Quiz ID
+      description: Which quiz does this question belong to?
+      options:
+        - quiz1_python_basics
+        - quiz2_data_structures
+        - quiz3_functions
+        - quiz4_r_basics
+        - quiz5_data_manipulation
+        - quiz6_visualization
+    validations:
+      required: true
+
+  - type: dropdown
+    id: question_type
+    attributes:
+      label: Question Type
+      description: What type of question is this?
+      options:
+        - number (numeric answer)
+        - text (short text answer)
+        - single (single choice)
+        - multiple (multiple choices)
+    validations:
+      required: true
+
+  - type: textarea
+    id: question
+    attributes:
+      label: Question
+      description: The question text (supports Markdown and code blocks)
+      placeholder: |
+        Quel est le résultat de `len([1, 2, 3])` en Python ?
+    validations:
+      required: true
+
+  - type: textarea
+    id: options
+    attributes:
+      label: Options (for single/multiple choice only)
+      description: |
+        One option per line. Leave empty for number/text questions.
+      placeholder: |
+        tuple
+        list
+        dict
+        set
+
+  - type: textarea
+    id: answer
+    attributes:
+      label: Answer
+      description: |
+        - For **number**: the numeric answer (e.g., `8`)
+        - For **text**: the expected text (e.g., `print`)
+        - For **single**: the index of correct option (0-based, e.g., `1`)
+        - For **multiple**: comma-separated indices (e.g., `0,1,3`)
+    validations:
+      required: true
+
+  - type: input
+    id: tolerance
+    attributes:
+      label: Tolerance (number type only)
+      description: Acceptable tolerance for numeric answers (default 0)
+      placeholder: "0"
+
+  - type: dropdown
+    id: case_sensitive
+    attributes:
+      label: Case Sensitive (text type only)
+      description: Should the text answer be case-sensitive?
+      options:
+        - "false"
+        - "true"
+
+  - type: textarea
+    id: explanation
+    attributes:
+      label: Explanation (optional)
+      description: Explanation shown after the student answers
+      placeholder: |
+        La fonction `len()` retourne le nombre d'éléments dans une séquence.

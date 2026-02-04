@@ -16,6 +16,7 @@ PYR-M-IFRI: Python and R (for data scientists)
    part1/index
    part2/index
    part3/index
+   part6/index
 
 .. Indices and tables
 .. ==================
