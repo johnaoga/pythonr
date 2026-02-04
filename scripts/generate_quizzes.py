@@ -73,28 +73,37 @@ def fetch_issues_from_github(repo: str, token: str = None) -> list:
     
     headers = {'Accept': 'application/vnd.github.v3+json'}
     if token:
-        headers['Authorization'] = f'token {token}'
+        headers['Authorization'] = f'Bearer {token}'
     
     url = f'https://api.github.com/repos/{repo}/issues'
     params = {'labels': 'quiz', 'state': 'open', 'per_page': 100}
+    
+    print(f"  API URL: {url}")
+    print(f"  Token provided: {'yes' if token else 'no'}")
     
     all_issues = []
     page = 1
     
     while True:
         params['page'] = page
-        response = requests.get(url, headers=headers, params=params)
-        
-        if response.status_code != 200:
-            print(f"Warning: GitHub API returned {response.status_code}")
+        try:
+            response = requests.get(url, headers=headers, params=params, timeout=30)
+            
+            if response.status_code != 200:
+                print(f"Warning: GitHub API returned {response.status_code}")
+                print(f"  Response: {response.text[:500]}")
+                break
+            
+            issues = response.json()
+            if not issues:
+                break
+            
+            all_issues.extend(issues)
+            print(f"  Fetched {len(issues)} issues from page {page}")
+            page += 1
+        except Exception as e:
+            print(f"Warning: GitHub API request failed: {e}")
             break
-        
-        issues = response.json()
-        if not issues:
-            break
-        
-        all_issues.extend(issues)
-        page += 1
     
     return all_issues
 
@@ -329,18 +338,32 @@ def main():
 
 
 def generate_part6_index(part6_dir: Path, quiz_ids: list):
-    """Generate or update the part6 index.rst with quiz toctree."""
+    """Update the part6 index.rst toctree with generated quizzes."""
     index_file = part6_dir / 'index.rst'
     
     # Sort quiz IDs
     quiz_ids = sorted(quiz_ids)
-    
     toctree_entries = '\n   '.join([f'quizzes/{qid}' for qid in quiz_ids])
     
+    # If index exists, update only the toctree section
+    if index_file.exists():
+        content = index_file.read_text(encoding='utf-8')
+        # Find and replace the toctree content
+        pattern = r'(.. toctree::\n   :maxdepth: 1\n\n)(   quizzes/[^\n]+\n?)+'
+        replacement = f'\\1   {toctree_entries}\n'
+        new_content, count = re.subn(pattern, replacement, content)
+        if count > 0:
+            index_file.write_text(new_content, encoding='utf-8')
+            print(f"Updated toctree in: {index_file}")
+        else:
+            print(f"Warning: Could not find toctree to update in {index_file}")
+        return
+    
+    # Create new index if it doesn't exist
     content = f'''.. _part6:
 
 *************************************************************************************************
-Partie 6 | QCM - Questionnaires d'auto-évaluation
+QCM - Questionnaires d'auto-évaluation
 *************************************************************************************************
 
 Vue d'ensemble

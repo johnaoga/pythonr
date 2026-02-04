@@ -13,6 +13,7 @@ permissions:
   contents: read
   pages: write
   id-token: write
+  issues: read
 
 concurrency:
   group: "pages"
@@ -21,6 +22,10 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    # Skip if issue event without quiz label
+    if: |
+      github.event_name != 'issues' || 
+      contains(github.event.issue.labels.*.name, 'quiz')
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
