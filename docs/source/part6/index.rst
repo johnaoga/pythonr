@@ -30,4 +30,5 @@ Quizzes disponibles
    :maxdepth: 1
 
    quizzes/quiz1_python_basics
+   quizzes/quiz2_data_structures
 
