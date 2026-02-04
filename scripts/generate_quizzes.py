@@ -134,20 +134,44 @@ def escape_html(text: str) -> str:
 
 
 def markdown_to_html(text: str) -> str:
-    """Simple markdown to HTML conversion for code blocks."""
-    # Convert inline code
+    """Convert markdown to HTML, handling code blocks and newlines."""
+    # Handle fenced code blocks first (```language ... ```)
+    def replace_code_block(match):
+        lang = match.group(1) or ''
+        code = match.group(2)
+        # Escape HTML in code, preserve structure with <br>
+        code_escaped = html.escape(code.strip())
+        code_html = code_escaped.replace('\n', '<br>')
+        return f'<pre><code class="language-{lang}">{code_html}</code></pre>'
+    
+    text = re.sub(r'```(\w*)\n(.*?)```', replace_code_block, text, flags=re.DOTALL)
+    
+    # Handle {python} style code blocks
+    def replace_brace_code(match):
+        lang = match.group(1) or ''
+        code = match.group(2)
+        code_escaped = html.escape(code.strip())
+        code_html = code_escaped.replace('\n', '<br>')
+        return f'<pre><code class="language-{lang}">{code_html}</code></pre>'
+    
+    text = re.sub(r'\{(\w+)\}\n(.*?)(?=\n\n|$)', replace_brace_code, text, flags=re.DOTALL)
+    
+    # Convert inline code (single backticks)
     text = re.sub(r'`([^`]+)`', r'<code>\1</code>', text)
     # Convert bold
     text = re.sub(r'\*\*([^*]+)\*\*', r'<strong>\1</strong>', text)
-    # Convert italic
+    # Convert italic  
     text = re.sub(r'\*([^*]+)\*', r'<em>\1</em>', text)
+    # Convert remaining newlines to <br> for HTML display
+    text = text.replace('\n', '<br>')
     return text
 
 
 def generate_question_html(qid: str, qnum: int, question: dict) -> tuple:
     """Generate HTML for a single question and return (html, answer_data)."""
     qtype = question['type']
-    q_text = markdown_to_html(escape_html(question['question']))
+    # Don't escape first - let markdown_to_html handle code blocks properly
+    q_text = markdown_to_html(question['question'])
     
     answer_data = {'id': qid, 'type': qtype}
     
@@ -233,47 +257,58 @@ QUIZ_TITLES = {
 }
 
 
+def indent_html(html_str: str, spaces: int = 3) -> str:
+    """Indent all lines of HTML for RST raw directive."""
+    indent = ' ' * spaces
+    lines = html_str.strip().split('\n')
+    return '\n'.join(indent + line for line in lines)
+
+
 def generate_quiz_rst(quiz_id: str, questions: list) -> str:
     """Generate RST content for a quiz."""
     title = QUIZ_TITLES.get(quiz_id, quiz_id.replace('_', ' ').title())
     
-    questions_html = ""
+    questions_html_parts = []
     quiz_data = {"questions": []}
     
     for i, q in enumerate(questions):
         qid = f"{quiz_id}_{i}"
         q_html, answer_data = generate_question_html(qid, i + 1, q)
-        questions_html += q_html
+        # Normalize the HTML - remove extra whitespace/newlines and make single line per question
+        q_html_clean = ' '.join(q_html.split())
+        questions_html_parts.append(q_html_clean)
         quiz_data['questions'].append(answer_data)
+    
+    questions_html = '\n'.join(questions_html_parts)
     
     # Generate underline for title
     title_underline = '=' * len(title)
+    
+    # Build the HTML as a single block, then indent for RST
+    html_block = f'''<div class="quiz-container" id="quiz-{quiz_id}">
+<form id="quiz-form-{quiz_id}" onsubmit="return false;">
+{questions_html}
+</form>
+<div class="quiz-actions">
+<button type="button" class="quiz-btn quiz-btn-check" onclick="checkQuiz('{quiz_id}')">✓ Vérifier mes réponses</button>
+<button type="button" class="quiz-btn quiz-btn-reset" onclick="resetQuiz('{quiz_id}')">↺ Recommencer</button>
+</div>
+<div id="result-{quiz_id}" class="quiz-result"></div>
+<div id="explanations-{quiz_id}" class="quiz-explanations"></div>
+</div>
+<script>
+if (typeof window.quizData === 'undefined') window.quizData = {{}};
+window.quizData['{quiz_id}'] = {json.dumps(quiz_data, ensure_ascii=False)};
+</script>'''
+    
+    indented_html = indent_html(html_block)
     
     rst_content = f'''{title}
 {title_underline}
 
 .. raw:: html
 
-   <div class="quiz-container" id="quiz-{quiz_id}">
-     <form id="quiz-form-{quiz_id}" onsubmit="return false;">
-       {questions_html}
-     </form>
-     <div class="quiz-actions">
-       <button type="button" class="quiz-btn quiz-btn-check" onclick="checkQuiz('{quiz_id}')">
-         ✓ Vérifier mes réponses
-       </button>
-       <button type="button" class="quiz-btn quiz-btn-reset" onclick="resetQuiz('{quiz_id}')">
-         ↺ Recommencer
-       </button>
-     </div>
-     <div id="result-{quiz_id}" class="quiz-result"></div>
-     <div id="explanations-{quiz_id}" class="quiz-explanations"></div>
-   </div>
-
-   <script>
-   if (typeof window.quizData === 'undefined') window.quizData = {{}};
-   window.quizData['{quiz_id}'] = {json.dumps(quiz_data, ensure_ascii=False)};
-   </script>
+{indented_html}
 
 '''
     return rst_content
