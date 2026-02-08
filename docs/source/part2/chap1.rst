@@ -4,9 +4,6 @@
 Chapitre 1 : Manipulation de données et nettoyage
 ***************************************************
 
-Introduction
-============
-
 La manipulation et le nettoyage de données sont des étapes cruciales dans tout projet d'analyse de données. 
 Ce chapitre couvre les techniques essentielles pour préparer les données à l'analyse dans Python et R.
 

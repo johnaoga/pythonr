@@ -5,9 +5,6 @@
 Partie 2 | Analyse de données et visualisation avec Python et R
 *************************************************************************************************
 
-Vue d'ensemble
-==============
-
 Cette partie présente les techniques essentielles pour l'analyse et la visualisation de données en Python et R.
 Elle couvre la manipulation et le nettoyage de données, la création de visualisations efficaces, et le développement
 d'applications web interactives pour le partage des analyses.
@@ -56,18 +53,6 @@ Organisation
 Notes théoriques
 =======================================
 
-Exercice introductif
-""""""""""""""""""""
-
-1. Avez-vous déjà utilisé R ou RStudio ? Quelles ont été vos premières impressions ?
-2. Qu'est-ce qui différencie R des autres langages de programmation selon vous ?
-3. Pourquoi R est-il particulièrement populaire en statistiques et en analyse de données ?
-4. Connaissez-vous la différence entre un vecteur et une liste en R ?
-5. Quels sont selon vous les avantages d'utiliser R plutôt qu'Excel pour l'analyse statistique ?
-
-
-Notes
-""""""
 **R : Langage spécialisé pour l'analyse de données**
 
 - R : langage open-source conçu spécifiquement pour les statistiques et l'analyse de données

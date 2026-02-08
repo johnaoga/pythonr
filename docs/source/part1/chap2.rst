@@ -4,18 +4,17 @@
 Chapitre 2 : Les fondamentaux de Python
 ***************************************
 
-Introduction
-============
-
 Python est un langage de programmation de haut niveau, interprété et orienté objet. Sa syntaxe claire et lisible 
 en fait un excellent choix pour les débutants tout en restant puissant pour les développeurs expérimentés.
 
-Programme "Hello World" en Python
-==================================
 
-Le programme "Hello World" est traditionnellement le premier programme qu'on écrit lorsqu'on apprend un nouveau langage.
+Notes théoriques
+=======================================
 
-**Définition** : Le programme "Hello World" est un script simple qui affiche "Hello, World!" à l'écran. 
+"Hello World" 
+""""""""""""""""""
+
+Le programme "Hello World" est un script simple qui affiche "Hello, World!" à l'écran. 
 C'est une façon traditionnelle de commencer l'apprentissage d'un nouveau langage de programmation.
 
 **Syntaxe** : 
@@ -32,13 +31,12 @@ C'est une façon traditionnelle de commencer l'apprentissage d'un nouveau langag
    # Résultat : Hello, World!
 
 Variables en Python
-===================
+"""""""""""""""""""
 
-**Définition** : Les variables sont utilisées pour stocker des valeurs de données. En Python, une variable 
+Les variables sont utilisées pour stocker des valeurs de données. En Python, une variable 
 est créée au moment où vous lui assignez une valeur pour la première fois.
 
-Règles de nommage
------------------
+**Règles de nommage**
 
 Les variables Python doivent respecter certaines règles :
 
@@ -59,12 +57,9 @@ Les variables Python doivent respecter certaines règles :
    # Résultat : 5 Alice
 
 Types de données en Python
-===========================
+""""""""""""""""""""""""""
 
-Introduction aux types
-----------------------
-
-**Définition** : Les types de données sont la classification ou catégorisation des éléments de données. 
+Les types de données sont la classification ou catégorisation des éléments de données. 
 Python a plusieurs types de données incluant Integer, Float, String, List, Tuple, et Dictionary.
 
 **Types principaux** :
@@ -88,8 +83,7 @@ Python a plusieurs types de données incluant Integer, Float, String, List, Tupl
    float_var = 20.5
    string_var = "Hello"
 
-Types littéraux
----------------
+**les littéraux**
 
 * **Integer** : Nombres entiers, ex: ``5``
 * **Float** : Nombres avec décimales, ex: ``5.0``
@@ -101,12 +95,9 @@ Types littéraux
 * **Boolean** : Représente ``True`` ou ``False``
 
 Opérateurs Python
-=================
+"""""""""""""""""
 
-Introduction aux opérateurs
----------------------------
-
-**Définition** : Les opérateurs sont utilisés pour effectuer des opérations sur des variables et des valeurs. 
+Les opérateurs sont utilisés pour effectuer des opérations sur des variables et des valeurs. 
 Python possède des opérateurs arithmétiques, de comparaison, d'assignation, logiques, d'identité, d'appartenance et binaires.
 
 **Exemple** :
@@ -119,9 +110,6 @@ Python possède des opérateurs arithmétiques, de comparaison, d'assignation, l
    print(a + b)  # Addition : 13
    print(a * b)  # Multiplication : 30
 
-Vue d'ensemble des opérateurs
-------------------------------
-
 **Types d'opérateurs** :
 
 * Opérateurs arithmétiques
@@ -132,10 +120,9 @@ Vue d'ensemble des opérateurs
 * Opérateurs d'appartenance
 * Opérateurs binaires
 
-Détail des opérateurs
----------------------
+**Exemple** :
 
-**Opérateurs arithmétiques** : ``+``, ``-``, ``*``, ``/``, ``%``, ``//``, ``**``
+- **Opérateurs arithmétiques** : ``+``, ``-``, ``*``, ``/``, ``%``, ``//``, ``**``
 
 .. code-block:: python
 
@@ -149,7 +136,7 @@ Détail des opérateurs
    print(a // b)  # Division entière : 3
    print(a ** b)  # Puissance : 1000
 
-**Opérateurs de comparaison** : ``==``, ``!=``, ``>``, ``<``, ``>=``, ``<=``
+- **Opérateurs de comparaison** : ``==``, ``!=``, ``>``, ``<``, ``>=``, ``<=``
 
 .. code-block:: python
 
@@ -162,7 +149,7 @@ Détail des opérateurs
    print(x >= y)  # Plus grand ou égal : False
    print(x <= y)  # Plus petit ou égal : True
 
-**Opérateurs d'assignation** : ``=``, ``+=``, ``-=``, ``*=``, ``/=``, etc.
+- **Opérateurs d'assignation** : ``=``, ``+=``, ``-=``, ``*=``, ``/=``, etc.
 
 .. code-block:: python
 
@@ -172,7 +159,7 @@ Détail des opérateurs
    x *= 2   # Équivalent à x = x * 2
    print(x) # 16
 
-**Opérateurs logiques** : ``and``, ``or``, ``not``
+- **Opérateurs logiques** : ``and``, ``or``, ``not``
 
 .. code-block:: python
 
@@ -182,7 +169,7 @@ Détail des opérateurs
    print(a or b)   # True
    print(not a)    # False
 
-**Opérateurs d'identité** : ``is``, ``is not``
+- **Opérateurs d'identité** : ``is``, ``is not``
 
 .. code-block:: python
 
@@ -193,7 +180,7 @@ Détail des opérateurs
    print(x is y)     # False (objets différents)
    print(x == y)     # True (même contenu)
 
-**Opérateurs d'appartenance** : ``in``, ``not in``
+- **Opérateurs d'appartenance** : ``in``, ``not in``
 
 .. code-block:: python
 
@@ -201,14 +188,14 @@ Détail des opérateurs
    print(3 in liste)     # True
    print(6 not in liste) # True
 
-**Opérateurs binaires** : ``&``, ``|``, ``^``, ``~``, ``<<``, ``>>``
+- **Opérateurs binaires** : ``&``, ``|``, ``^``, ``~``, ``<<``, ``>>``
 
 **Règle PEMDAS** : Parenthèses, Exposants, Multiplication/Division, Addition/Soustraction
 
-Fonction print()
-================
+Instruction de sortie: la fonction print()
+""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-**Définition** : La fonction ``print()`` est utilisée pour afficher des données à l'écran.
+La fonction ``print()`` est utilisée pour afficher des données à l'écran.
 
 **Syntaxe de base** :
 
@@ -235,12 +222,12 @@ Fonction print()
    print("Sur la même ligne")
    # Résultat : Première ligne Sur la même ligne
 
-Fonction input()
-================
+Instruction de saisie: la fonction input()
+""""""""""""""""""""""""""""""""""""""""
 
-**Définition** : La fonction ``input()`` permet de lire une entrée de l'utilisateur.
+La fonction ``input()`` permet de lire une entrée de l'utilisateur.
 
-**Syntaxe** :
+**Syntaxe**:
 
 .. code-block:: python
 
@@ -258,9 +245,9 @@ Fonction input()
    print("Dans 10 ans, vous aurez", age + 10, "ans")
 
 Conversion de types (Casting)
-==============================
+""""""""""""""""""""""""""""""""""""
 
-**Définition** : Le casting consiste à convertir une variable d'un type à un autre.
+Le casting consiste à convertir une variable d'un type à un autre.
 
 **Fonctions de conversion** :
 
@@ -296,11 +283,11 @@ Conversion de types (Casting)
    print(taille_float)  # 1.75
 
 Chaînes de caractères (Strings)
-================================
+"""""""""""""""""""""""""""""""
 
-**Définition** : Les chaînes de caractères sont des séquences de caractères entourées de guillemets.
+Les chaînes de caractères sont des séquences de caractères entourées de guillemets.
 
-**Création** :
+**Création**:
 
 .. code-block:: python
 
@@ -334,7 +321,7 @@ Chaînes de caractères (Strings)
    print(mot[2:])   # thon
    print(mot[:4])   # Pyth
 
-**Méthodes de chaînes** :
+**Méthodes associées aux chaînes** :
 
 .. code-block:: python
 
@@ -360,8 +347,7 @@ Chaînes de caractères (Strings)
    rejoindre = "-".join(mots)
    print(rejoindre)  # Python-est-génial
 
-Formatage de chaînes
---------------------
+**Formatage de chaînes**
 
 .. code-block:: python
 
@@ -378,19 +364,152 @@ Formatage de chaînes
    pi = 3.14159
    print(f"Pi vaut approximativement {pi:.2f}")  # 3.14
 
-Conclusion
-==========
 
-Ce chapitre a couvert les concepts fondamentaux de Python :
+Structures de contrôle : conditions if/else
+"""""""""""""""""""""""""""""""""""""""""""
 
-* La syntaxe de base et le programme "Hello World"
-* Les variables et les règles de nommage
-* Les types de données principaux
-* Les opérateurs et leurs utilisations
-* Les fonctions d'entrée/sortie (print et input)
-* La conversion de types
-* Les chaînes de caractères et leurs manipulations
+Les structures de contrôle permettent de contrôler le flux d'exécution du programme. Les if/else sont des structures de contrôle qui permettent une execution selon certaines conditions.
 
-Ces concepts constituent la base sur laquelle vous construirez vos compétences en programmation Python. 
-Dans les prochains chapitres, nous explorerons des structures de contrôle plus avancées et les structures 
-de données complexes.
+**Exemple**:
+
+- **if**: s'exécute si la condition est vraie
+
+.. code-block:: python
+
+   age = int(input("Entrez votre âge: "))
+   
+   if age >= 18:
+       print("Etant majeur, cette information vous concerne aussi")
+
+   print("Ceci est destiné à tous")
+
+
+- **if/else**: les instructions dans le `if` s'exécutent si la condition est vraie, sinon les instructions dans le `else` s'exécutent
+
+.. code-block:: python
+
+   age = 18
+   
+   if age >= 18:
+       print("Vous êtes majeur")
+   else:
+       print("Vous êtes mineur")
+
+- **if/elif/else**: permet de tester plusieurs conditions
+
+.. code-block:: python
+
+   score = 85
+   
+   if score >= 90:
+       print("Excellent")
+   elif score >= 80:
+       print("Très bien")
+   elif score >= 70:
+       print("Bien")
+   else:
+       print("À améliorer")
+
+- **plusieurs conditions avec des opérateurs logiques**: `and`, `or`, `not`
+
+.. code-block:: python
+
+   age = 25
+   permis = True
+   
+   if age >= 18 and permis:
+       print("Vous pouvez conduire")
+   else:
+       print("Vous ne pouvez pas conduire")
+
+
+.. note:: 
+   Python n'a pas de switch case, mais on peut utiliser un dictionnaire pour simuler un switch case
+
+.. note::
+   Il est possible d'écrire des conditions sur une seule ligne: `var = valeur1 if condition else valeur2`
+
+.. code-block:: python
+
+   age = 25
+   statut = "majeur" if age >= 18 else "mineur"
+   print(statut)  # majeur
+
+
+Structures de contrôle: les boucles
+"""""""""""""""""""""""""""""""""""""""""""""""
+
+Les boucles sont des structures de contrôle qui permettent de répéter un bloc d'instructions plusieurs fois.
+
+**Types de boucles**:
+
+- **for**: répète un bloc d'instructions un nombre déterminé de fois
+- **while**: répète un bloc d'instructions tant qu'une condition est vraie
+
+**Exemple:**
+
+- **for**:
+
+.. code-block:: python
+
+   for i in range(5):
+       print(i)
+
+- **while**:
+
+.. code-block:: python
+
+   i = 0
+   while i < 5:
+       print(i)
+       i += 1
+
+.. note::
+   `range()` est une fonction qui retourne une séquence de nombres. Par exemple, `range(5)` retourne une séquence de 0 à 4.
+
+**Contrôle de flux**:
+
+- **break**: sort de la boucle
+- **continue**: passe à l'itération suivante
+
+.. code-block:: python
+
+   for i in range(10):
+       if i == 5:
+           break
+       print(i)
+   
+   for i in range(5):
+       if i == 2:
+           continue
+       print(i)
+
+Fonctions
+""""""""""""
+
+Les fonctions sont des blocs de code réutilisables qui effectuent une tâche spécifique. Une fonction a deux facettes:
+
+- **Définition**: la fonction est créée
+- **Appel**: la fonction est exécutée
+
+.. code-block:: python
+
+   # Définition de la fonction
+   def saluer():
+       print("Bonjour!")
+   
+   # Appel de la fonction
+   saluer()
+
+.. note::
+   Une fonction est définie une seule fois, mais elle peut être appelée plusieurs fois.
+
+
+
+
+
+
+
+
+
+

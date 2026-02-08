@@ -4,16 +4,16 @@
 Chapitre 3 : Les fondamentaux de R
 **********************************
 
-Introduction
-============
-
 R est un langage de programmation et un environnement logiciel pour le calcul statistique et les graphiques. 
 Conçu spécifiquement pour l'analyse de données, R offre une grande variété de techniques statistiques et graphiques.
 
-Programme "Hello World" en R
-============================
+Notes théoriques
+=======================================
 
-**Définition** : Le programme "Hello World" en R est un script simple qui affiche "Hello, World!" à l'écran. 
+"Hello World" 
+""""""""""""""""""
+
+Le programme "Hello World" en R est un script simple qui affiche "Hello, World!" à l'écran. 
 C'est communément utilisé comme première étape dans l'apprentissage d'un nouveau langage de programmation.
 
 **Syntaxe** : ``print("Hello, World!")``
@@ -26,9 +26,9 @@ C'est communément utilisé comme première étape dans l'apprentissage d'un nou
    # Résultat : [1] "Hello, World!"
 
 Variables en R
-==============
+""""""""""""""""""
 
-**Définition** : Les variables R stockent des valeurs de données. Sur la base de la valeur assignée, 
+Les variables R stockent des valeurs de données. Sur la base de la valeur assignée, 
 R détermine automatiquement le type de données de la variable.
 
 **Syntaxe** : ``variable_name <- value``
@@ -48,8 +48,6 @@ R détermine automatiquement le type de données de la variable.
 .. note::
    Il est possible d'utiliser le symbole ``=`` également, mais ``<-`` est la convention recommandée en R.
 
-Règles de nommage pour les variables R
----------------------------------------
 
 **Règles de nommage** :
 
@@ -73,12 +71,9 @@ Règles de nommage pour les variables R
    # var-name <- 3    # Le tiret n'est pas autorisé
 
 Types de données R
-==================
+""""""""""""""""""
 
-Introduction aux types
-----------------------
-
-**Définition** : Les types de données en R représentent le type de données que vous pouvez stocker dans une variable.
+Les types de données en R représentent le type de données que vous pouvez stocker dans une variable.
 
 **Types principaux** :
 
@@ -88,10 +83,9 @@ Introduction aux types
 * Logical (logique)
 * Character (caractère)
 
-Détail des types
-----------------
+**Exemples**
 
-**Numeric** : Tout nombre avec ou sans décimale
+- **Numeric** : Tout nombre avec ou sans décimale
 
 .. code-block:: r
 
@@ -100,7 +94,7 @@ Détail des types
    class(x)  # "numeric"
    class(y)  # "numeric"
 
-**Integer** : Nombres entiers
+- **Integer** : Nombres entiers
 
 .. code-block:: r
 
@@ -111,7 +105,7 @@ Détail des types
    is.integer(x)  # TRUE
    is.numeric(x)  # TRUE (les entiers sont aussi numériques)
 
-**Complex** : Nombres complexes
+- **Complex** : Nombres complexes
 
 .. code-block:: r
 
@@ -122,7 +116,7 @@ Détail des types
    Re(z)  # 1
    Im(z)  # 4
 
-**Logical** : Valeurs booléennes
+- **Logical** : Valeurs booléennes
 
 .. code-block:: r
 
@@ -134,7 +128,7 @@ Détail des types
    resultat <- 5 > 3
    print(resultat)  # TRUE
 
-**Character** : Données texte/chaîne
+- **Character** : Données texte/chaîne
 
 .. code-block:: r
 
@@ -146,12 +140,9 @@ Détail des types
    nchar(texte)  # 5
 
 Opérateurs R
-============
+""""""""""""
 
-Vue d'ensemble
---------------
-
-**Définition** : Les opérateurs sont des symboles qui indiquent à R d'effectuer des manipulations mathématiques ou logiques spécifiques.
+Les opérateurs sont des symboles qui indiquent à R d'effectuer des manipulations mathématiques ou logiques spécifiques.
 
 **Types d'opérateurs** :
 
@@ -160,10 +151,9 @@ Vue d'ensemble
 * Logiques
 * D'assignation
 
-Opérateurs arithmétiques
-------------------------
+**Exemples**
 
-**Opérateurs** : ``+``, ``-``, ``*``, ``/``, ``^`` ou ``**``, ``%%``, ``%/%``
+- **Opérateurs Arithmétiques** : ``+``, ``-``, ``*``, ``/``, ``^`` ou ``**``, ``%%``, ``%/%``
 
 .. code-block:: r
 
@@ -186,10 +176,7 @@ Opérateurs arithmétiques
    # Division entière
    a %/% b # 3
 
-Opérateurs relationnels
------------------------
-
-**Opérateurs** : ``==``, ``!=``, ``>``, ``<``, ``>=``, ``<=``
+- **Opérateurs Relationnels** : ``==``, ``!=``, ``>``, ``<``, ``>=``, ``<=``
 
 .. code-block:: r
 
@@ -203,10 +190,7 @@ Opérateurs relationnels
    x >= y   # Plus grand ou égal : FALSE
    x <= y   # Plus petit ou égal : TRUE
 
-Opérateurs logiques
--------------------
-
-**Opérateurs** : ``&``, ``|``, ``!``, ``&&``, ``||``
+- **Opérateurs Logiques** : ``&``, ``|``, ``!``, ``&&``, ``||``
 
 .. code-block:: r
 
@@ -228,10 +212,7 @@ Opérateurs logiques
    v1 && v2  # TRUE (seulement le premier élément)
    v1 || v2  # TRUE (seulement le premier élément)
 
-Opérateurs d'assignation
-------------------------
-
-**Opérateurs** : ``<-``, ``=``, ``->``
+- **Opérateurs d'assignation** : ``<-``, ``=``, ``->``
 
 .. code-block:: r
 
@@ -246,12 +227,15 @@ Opérateurs d'assignation
    
    print(c(x, y, z))  # [1]  5 10 15
 
-Fonction print()
-================
+Instruction de sortie: print()
+""""""""""""""""""""""""""""""""""""
 
-**Définition** : La fonction print en R est utilisée pour afficher la valeur d'une variable ou le résultat d'un calcul.
+La fonction print en R est utilisée pour afficher la valeur d'une variable ou le résultat d'un calcul.
 
 **Syntaxe** : ``print(object)``
+
+.. note::
+   En R, l'affichage sans ``print()`` fonctionne automatiquement dans la console interactive, mais il est recommandé de l'utiliser explicitement pour la clarté.
 
 **Exemples** :
 
@@ -278,10 +262,10 @@ Fonction print()
    cat("Bonjour", "le", "monde", "\n")
    # Bonjour le monde
 
-Fonction d'entrée
-=================
+Instruction d'entrée
+""""""""""""""""""""
 
-**Définition** : La lecture de l'entrée utilisateur en R se fait avec la fonction ``readline``.
+La lecture de l'entrée utilisateur en R se fait avec la fonction ``readline``.
 
 **Syntaxe** : ``input <- readline(prompt)``
 
@@ -302,9 +286,9 @@ Fonction d'entrée
    # nombre <- scan(n = 1)  # Lit un nombre
 
 Conversion de types (Casting)
-==============================
+""""""""""""""""""""""""""""""""""""
 
-**Définition** : Le casting en R implique la conversion du type d'une variable d'un type à un autre.
+Le casting en R implique la conversion du type d'une variable d'un type à un autre.
 
 **Fonctions de conversion** :
 
@@ -335,11 +319,8 @@ Conversion de types (Casting)
    is.character(z_char)  # TRUE
    is.logical(a_log)     # TRUE
 
-Structures de contrôle
-======================
-
-Conditions if/else
-------------------
+Structures de contrôle: conditions if/else
+"""""""""""""""""""""""""""""""""""""""""""""""
 
 .. code-block:: r
 
@@ -375,8 +356,9 @@ Conditions if/else
    statut <- ifelse(ages >= 18, "Majeur", "Mineur")
    print(statut)  # [1] "Mineur" "Majeur" "Majeur" "Mineur"
 
-Boucles
--------
+
+Structures de contrôle: les boucles
+"""""""""""""""""""""""""""""""""""""""""""""""
 
 **Boucle for** :
 
@@ -449,9 +431,7 @@ Boucles
    # Affiche : 1 2 4 5
 
 Fonctions
-=========
-
-**Définition de fonctions** :
+""""""""""""
 
 .. code-block:: r
 
@@ -492,27 +472,3 @@ Fonctions
    donnees <- c(1, 2, 3, 4, 5)
    resultats <- stats(donnees)
    print(resultats$moyenne)  # 3
-
-Conclusion
-==========
-
-Ce chapitre a couvert les concepts fondamentaux de R :
-
-* La syntaxe de base et le programme "Hello World"
-* Les variables et leurs règles de nommage spécifiques à R
-* Les types de données principaux en R
-* Les opérateurs et leurs utilisations
-* Les fonctions d'entrée/sortie
-* La conversion de types
-* Les structures de contrôle (conditions et boucles)
-* La définition de fonctions
-
-R se distingue de Python par plusieurs aspects :
-
-* L'indexation commence à 1 (et non 0)
-* L'opérateur d'assignation ``<-`` est préféré
-* Les opérations sont naturellement vectorisées
-* La syntaxe est orientée vers l'analyse statistique
-
-Ces fondamentaux vous permettront de progresser vers des concepts plus avancés en R, 
-notamment les structures de données complexes et les packages spécialisés pour l'analyse de données.

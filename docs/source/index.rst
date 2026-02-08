@@ -5,7 +5,7 @@
 
 
 #############################################
-PYR-M-IFRI: Python and R (for data scientists)
+PYR-M-IFRI: Python et R
 #############################################
 
 .. toctree::

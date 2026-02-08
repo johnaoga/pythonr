@@ -4,19 +4,21 @@
 Organisation du cours
 *********************
 
-L'objectif de ce cours est l'apprentissage de la programmation en Python et R (aspects intermédiaire et avancé). Ce cours utilise l'analyse de données comme étude de cas (Python et R étant des outils essentiels pour l'analyse de données). Nous suivons une démarche comprenant 
+L'objectif de ce cours est l'apprentissage de la programmation en Python et R (aspects intermédiaire et avancé). Ce cours utilise l'analyse de données comme étude de cas, Python et R étant des outils essentiels pour l'analyse de données. Nous suivons une démarche comprenant 
 
 - le rappel des concepts fondamentaux de programmation (en Python et R)
 - la manipulation des structures de données, 
 - l'analyse et manipulation des données, 
 - la visualisation et le dashboarding.
 
-A la fin de ce cours l'étudiant doit être capable de:
+A la fin de ce cours l'étudiant.e doit être capable de:
 
-* Maîtriser les structures de données fondamentales en Python (listes, dictionnaires, tuples) et en R (vecteurs, data frames, listes)
+* Démontrer une bonne compréhension des concepts fondamentaux de programmation (en Python et R)
+* Représenter clairement les différences de syntaxe entre Python et R
+* Utiliser convenablement les structures de données de base en Python (listes, dictionnaires, tuples) et en R (vecteurs, data frames, listes)
 * Utiliser Python et/ou R pour importer, nettoyer et transformer des jeux de données de formats variés (CSV, Excel, JSON)
-* Effectuer des operations (moyennes, médianes, corrélations) variées sur des données en utilisant Python et/ou R
-* Créer des visualisations de données pertinentes en utilisant les bibliothèques appropriées (matplotlib, seaborn pour Python ; ggplot2 pour R)
+* Effectuer des operations statistiques (moyennes, médianes, corrélations) variées sur des données en utilisant Python et/ou R
+* Créer des visualisations de données en utilisant les bibliothèques appropriées (matplotlib, seaborn pour Python ; ggplot2 pour R)
 * Choisir l'outil (Python et/ou R) adequat pour les taches du quotidien
 
 
@@ -51,27 +53,28 @@ L'évaluation du cours se compose de trois éléments principaux :
 L'examen comprend deux parties :
 
 * **Partie 1 : QCM** - Questions de connaissance et de compréhension sur les structures de données Python et R
-* **Partie 2 : Complétion de code** - Exercices pratiques évaluant :
+* **Partie 2 : Code** - Exercices pratiques évaluant la maîtrise des notions vues en cours (souvent complétin de code)
 
 **2. Travaux Pratiques (40%)**
 
 Les TPs incluent :
 
-* **TP0** : CodingBat (Bonus - points supplémentaires)
+* **TP0** : `CodingBat <https://codingbat.com/python>`_ (Bonus - points supplémentaires) 
 * **TP1** : Fondamentaux de Python et R - Plus ou Moins (Modules 1 et 2)
 * **TP2** : Niveau Intermédiaire - Le Pendu (Modules 1 et 2)
 * **TP3** : Analyse de données et visualisation avec Streamlit (Modules 3 et 4)
 * **TP4** : Analyse de données et visualisation avec Shiny (Modules 3 et 4)
-* **TD-Exercices** : 50 exercices (Tous modules)
+* **TD-Exercices** : 50 exercices (Tous les modules)
 
 **3. Projet d'analyse de données (30%)**
 
 Le projet comprend :
 
-* Formulation de questions de recherche à partir d'un jeu de données
-* Développement de code Python/R fonctionnel
-* Résolution d'un problème en utilisant Python/R
-* Création d'un dashboard avec Streamlit/Shiny
+* Partir d'un problème réel posé, avec un jeu de données en appui et formuler des questions de recherche.
+* Développer un code Python/R fonctionnel pour répondre aux questions de recherche.
+* Créer un dashboard avec Streamlit/Shiny pour visualiser les résultats.
+* Rendre les livrables souhaités.
+
 
 
 **Note finale = 30% Examen + 40% TPs + 30% Projet**
