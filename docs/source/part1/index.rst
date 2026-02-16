@@ -70,6 +70,6 @@ Préparer votre environnement
 - Python: Normalement déjà installé sur votre machine (au moins une version).
 - Anaconda (Python) `https://www.anaconda.com/products/distribution <https://www.anaconda.com/products/distribution>`_ (devenu trop lourd de nos jours)
 - Jupyter Notebooks: `https://jupyter.org/install <https://jupyter.org/install>`_
-- R: `https://cran.r-project.org/ <https://cran.r-project.org/>`
+- R: `https://cran.r-project.org/ <https://cran.r-project.org/>`_
 - RStudio: `https://www.rstudio.com/products/rstudio/download/ <https://www.rstudio.com/products/rstudio/download/>`_
 
