@@ -4,28 +4,28 @@
 Organisation du cours
 *********************
 
-L'objectif de ce cours est l'apprentissage de la programmation en Python et R (aspects intermédiaire et avancé). Ce cours utilise l'analyse de données comme étude de cas, Python et R étant des outils essentiels pour l'analyse de données. Nous suivons une démarche comprenant 
+L'objectif de ce cours est l'apprentissage de la programmation en Python et R (aspects intermédiaire et avancé). Ce cours utilise l'analyse de données comme étude de cas, Python et R étant des outils essentiels pour l'analyse de données. Nous suivons une démarche comprenant :
 
-- le rappel des concepts fondamentaux de programmation (en Python et R)
+- le rappel des concepts fondamentaux de programmation (en Python et R),
 - la manipulation des structures de données, 
 - l'analyse et manipulation des données, 
 - la visualisation et le dashboarding.
 
-A la fin de ce cours l'étudiant.e doit être capable de:
+A la fin de ce cours l'étudiant.e doit être capable de :
 
 * Démontrer une bonne compréhension des concepts fondamentaux de programmation (en Python et R)
 * Représenter clairement les différences de syntaxe entre Python et R
 * Utiliser convenablement les structures de données de base en Python (listes, dictionnaires, tuples) et en R (vecteurs, data frames, listes)
 * Utiliser Python et/ou R pour importer, nettoyer et transformer des jeux de données de formats variés (CSV, Excel, JSON)
-* Effectuer des operations statistiques (moyennes, médianes, corrélations) variées sur des données en utilisant Python et/ou R
+* Effectuer des opérations statistiques (moyennes, médianes, corrélations) variées sur des données en utilisant Python et/ou R
 * Créer des visualisations de données en utilisant les bibliothèques appropriées (matplotlib, seaborn pour Python ; ggplot2 pour R)
-* Choisir l'outil (Python et/ou R) adequat pour les taches du quotidien
+* Choisir l'outil (Python et/ou R) adéquat pour les tâches du quotidien
 
 
 Pédagogie
 =======================================
 
-La pédagogie utilisée est mixte. Nous alternerons des:
+La pédagogie utilisée est mixte. Nous alternerons des :
 
 * Cours magistraux pour la clarification des concepts
 * Séances de laboratoires basées sur le modèle de l'apprentissage par soi-même et par projet
@@ -53,7 +53,7 @@ L'évaluation du cours se compose de trois éléments principaux :
 L'examen comprend deux parties :
 
 * **Partie 1 : QCM** - Questions de connaissance et de compréhension sur les structures de données Python et R
-* **Partie 2 : Code** - Exercices pratiques évaluant la maîtrise des notions vues en cours (souvent complétin de code)
+* **Partie 2 : Code** - Exercices pratiques évaluant la maîtrise des notions vues en cours (souvent complétion de code)
 
 **2. Travaux Pratiques (40%)**
 
