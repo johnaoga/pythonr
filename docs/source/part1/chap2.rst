@@ -83,7 +83,7 @@ Python a plusieurs types de données incluant Integer, Float, String, List, Tupl
    float_var = 20.5
    string_var = "Hello"
 
-**les littéraux**
+**Les littéraux**
 
 * **Integer** : Nombres entiers, ex: ``5``
 * **Float** : Nombres avec décimales, ex: ``5.0``
@@ -192,7 +192,7 @@ Python possède des opérateurs arithmétiques, de comparaison, d'assignation, l
 
 **Règle PEMDAS** : Parenthèses, Exposants, Multiplication/Division, Addition/Soustraction
 
-Instruction de sortie: la fonction print()
+Instruction de sortie : la fonction print()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 
 La fonction ``print()`` est utilisée pour afficher des données à l'écran.
@@ -222,12 +222,12 @@ La fonction ``print()`` est utilisée pour afficher des données à l'écran.
    print("Sur la même ligne")
    # Résultat : Première ligne Sur la même ligne
 
-Instruction de saisie: la fonction input()
+Instruction de saisie : la fonction input()
 """"""""""""""""""""""""""""""""""""""""
 
 La fonction ``input()`` permet de lire une entrée de l'utilisateur.
 
-**Syntaxe**:
+**Syntaxe** :
 
 .. code-block:: python
 
@@ -287,7 +287,7 @@ Chaînes de caractères (Strings)
 
 Les chaînes de caractères sont des séquences de caractères entourées de guillemets.
 
-**Création**:
+**Création** :
 
 .. code-block:: python
 
@@ -368,11 +368,11 @@ Les chaînes de caractères sont des séquences de caractères entourées de gui
 Structures de contrôle : conditions if/else
 """""""""""""""""""""""""""""""""""""""""""
 
-Les structures de contrôle permettent de contrôler le flux d'exécution du programme. Les if/else sont des structures de contrôle qui permettent une execution selon certaines conditions.
+Les structures de contrôle permettent de contrôler le flux d'exécution du programme. Les if/else sont des structures de contrôle qui permettent une exécution selon certaines conditions.
 
-**Exemple**:
+**Exemple** :
 
-- **if**: s'exécute si la condition est vraie
+- **if** : s'exécute si la condition est vraie
 
 .. code-block:: python
 
@@ -384,7 +384,7 @@ Les structures de contrôle permettent de contrôler le flux d'exécution du pro
    print("Ceci est destiné à tous")
 
 
-- **if/else**: les instructions dans le `if` s'exécutent si la condition est vraie, sinon les instructions dans le `else` s'exécutent
+- **if/else** : les instructions dans le `if` s'exécutent si la condition est vraie, sinon les instructions dans le `else` s'exécutent
 
 .. code-block:: python
 
@@ -395,7 +395,7 @@ Les structures de contrôle permettent de contrôler le flux d'exécution du pro
    else:
        print("Vous êtes mineur")
 
-- **if/elif/else**: permet de tester plusieurs conditions
+- **if/elif/else** : permet de tester plusieurs conditions
 
 .. code-block:: python
 
@@ -410,7 +410,7 @@ Les structures de contrôle permettent de contrôler le flux d'exécution du pro
    else:
        print("À améliorer")
 
-- **plusieurs conditions avec des opérateurs logiques**: `and`, `or`, `not`
+- **plusieurs conditions avec des opérateurs logiques** : `and`, `or`, `not`
 
 .. code-block:: python
 
@@ -436,26 +436,26 @@ Les structures de contrôle permettent de contrôler le flux d'exécution du pro
    print(statut)  # majeur
 
 
-Structures de contrôle: les boucles
+Structures de contrôle : les boucles
 """""""""""""""""""""""""""""""""""""""""""""""
 
 Les boucles sont des structures de contrôle qui permettent de répéter un bloc d'instructions plusieurs fois.
 
-**Types de boucles**:
+**Types de boucles** :
 
-- **for**: répète un bloc d'instructions un nombre déterminé de fois
-- **while**: répète un bloc d'instructions tant qu'une condition est vraie
+- **for** : répète un bloc d'instructions un nombre déterminé de fois
+- **while** : répète un bloc d'instructions tant qu'une condition est vraie
 
-**Exemple:**
+**Exemple** :
 
-- **for**:
+- **for** :
 
 .. code-block:: python
 
    for i in range(5):
        print(i)
 
-- **while**:
+- **while** :
 
 .. code-block:: python
 
@@ -467,10 +467,10 @@ Les boucles sont des structures de contrôle qui permettent de répéter un bloc
 .. note::
    `range()` est une fonction qui retourne une séquence de nombres. Par exemple, `range(5)` retourne une séquence de 0 à 4.
 
-**Contrôle de flux**:
+**Contrôle de flux** :
 
-- **break**: sort de la boucle
-- **continue**: passe à l'itération suivante
+- **break** : sort de la boucle
+- **continue** : passe à l'itération suivante
 
 .. code-block:: python
 
@@ -489,8 +489,8 @@ Fonctions
 
 Les fonctions sont des blocs de code réutilisables qui effectuent une tâche spécifique. Une fonction a deux facettes:
 
-- **Définition**: la fonction est créée
-- **Appel**: la fonction est exécutée
+- **Définition** : la fonction est créée
+- **Appel** : la fonction est exécutée
 
 .. code-block:: python
 
