@@ -30,7 +30,7 @@ Statistiques d'utilisation de Python et R
 
 
 .. note::
-   Les statistiques ci-dessus sont basées sur des `données de 2023<https://survey.stackoverflow.co/2023/>`. Les tendances peuvent évoluer avec le temps surtout avec l'arrivé des LLMs.
+   Les statistiques ci-dessus sont basées sur des `données de 2023 <https://survey.stackoverflow.co/2023/>`_. Les tendances peuvent évoluer avec le temps surtout avec l'arrivé des LLMs.
 
 Configuration de l'environnement
 =================================
@@ -54,7 +54,7 @@ Pour commencer à programmer en Python et R, vous devez configurer votre environ
 
 1. **R Base** : Le langage R de base
    
-   * Téléchargement : `CRAN R Project <https://cran.r-project.org/>`
+   * Téléchargement : `CRAN R Project <https://cran.r-project.org/>`_
    * Nécessaire pour exécuter du code R
 
 2. **RStudio** : Environnement de développement intégré pour R

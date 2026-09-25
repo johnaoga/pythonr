@@ -227,7 +227,7 @@ Les opérateurs sont des symboles qui indiquent à R d'effectuer des manipulatio
    
    print(c(x, y, z))  # [1]  5 10 15
 
-Instruction de sortie: print()
+Instruction de sortie : print()
 """"""""""""""""""""""""""""""""""""
 
 La fonction print en R est utilisée pour afficher la valeur d'une variable ou le résultat d'un calcul.
@@ -319,7 +319,7 @@ Le casting en R implique la conversion du type d'une variable d'un type à un au
    is.character(z_char)  # TRUE
    is.logical(a_log)     # TRUE
 
-Structures de contrôle: conditions if/else
+Structures de contrôle : conditions if/else
 """""""""""""""""""""""""""""""""""""""""""""""
 
 .. code-block:: r
@@ -357,7 +357,7 @@ Structures de contrôle: conditions if/else
    print(statut)  # [1] "Mineur" "Majeur" "Majeur" "Mineur"
 
 
-Structures de contrôle: les boucles
+Structures de contrôle : les boucles
 """""""""""""""""""""""""""""""""""""""""""""""
 
 **Boucle for** :
