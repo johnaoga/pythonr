@@ -4,6 +4,10 @@
 Organisation du cours
 *********************
 
+.. note::
+
+   Si vous suivez ce cours actuellement, vous devez signer la charte d'utilisation de l'IA ici : https://forms.gle/TtNLyc4pNSYaANTX9
+
 L'objectif de ce cours est l'apprentissage de la programmation en Python et R (aspects intermédiaire et avancé). Ce cours utilise l'analyse de données comme étude de cas, Python et R étant des outils essentiels pour l'analyse de données. Nous suivons une démarche comprenant :
 
 - le rappel des concepts fondamentaux de programmation (en Python et R),
